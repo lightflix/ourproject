@@ -23,12 +23,72 @@
 
 
 GLint x1=255,x2=255,x3=255; //Color Values to be changed for Grass and Clouds as the function is same for both
-GLint groundx=231,groundy=95,groundz=19;
-GLint brickx=230,bricky=95,brickz=19;
-int next=0;
-int flag=0;
-void (*scenePointer)();
 
+
+void drawRunningMario()
+{
+        glColor3f(0.58823,0.28235,0.07843);
+        glRectf(209,158,313,55); // BROWN SHOES
+        glRectf(261,210,366,108);
+        glRectf(833,366,908,158);
+        glRectf(885,418,935,158);
+        
+        glColor3f(0.070588,0.44705,0.745098);
+        glRectf(366,263,678,108); //BLUE TROUSERS/SUSPENDER
+        glRectf(416,420,468,367);
+        glRectf(468,367,521,293);
+        glRectf(625,420,676,367);
+        glRectf(676,367,728,288);
+        glRectf(640,315,833,160);
+        glRectf(470,315,676,263);
+        glRectf(573,315,678,210);
+        glRectf(521,315,470,212);
+        
+        glColor3f(0.99215,0.98823,0.21568);
+        glRectf(522,263,573,212); //YELLOW BUTTONS
+        glRectf(676,315,728,263);
+        
+        glColor3f(0.97254,0.058823,0.10980);
+        glRectf(209,418,418,315); //RED SHIRT
+        glRectf(315,315,470,265);
+        glRectf(394,366,470,313);
+        glRectf(468,420,625,367);
+        glRectf(522,367,676,315);
+        glRectf(678,420,780,367);
+        glRectf(728,468,833,418);
+        glRectf(780,524,833,449);
+        glRectf(728,678,833,625);
+        glRectf(782,678,885,573);
+        glRectf(833,602,885,522);
+        
+        glColor3f(0.9725,0.7529,0.58039);
+        glRectf(55,418,210,315); //HANDS & FACE
+        glRectf(106,326,156,263);
+        glRectf(780,782,883,678);
+        glRectf(730,782,820,728);
+        glRectf(313,678,393,522);
+        glRectf(366,679,678,420);
+        glRectf(663,625,728,420);
+        glRectf(717,623,780,524);
+        glRectf(764,573,833,522);
+        
+        glColor3f(0,0,0);
+        glRectf(571,678,623,573); //EYES & MOUSTACHE
+        glRectf(623,573,678,470);
+        glRectf(571,522,780,470);
+        
+        glColor3f(0.5803,0.28235,0.08235);
+        glRectf(313,678,468,625); //BROWN SIDEBURNS & HAIR
+        glRectf(366,636,418,522);
+        glRectf(400,575,468,522);
+        glRectf(261,625,313,470);
+        glRectf(288,521,366,470);
+        
+        glColor3f(0.984413,0.05098,0.10588);
+        glRectf(313,730,730,679); //RED HAT
+        glRectf(366,782,625,697);
+        glRectf(587,728,782,678);
+}
 void drawCoin()
 {
         glColor3ub(0, 0, 0);
@@ -243,13 +303,13 @@ void drawMushroom()
 
 
 
-void drawMario()
+void drawStaticMario()
 {
         //Values used for making the mario, array "PTM" means "Points Mario"
         GLfloat ptm[118][2]={{64,377},{64,401},{88,401},{88,424},{232,424},{232,400},{305,401},{304,377},{65,376},{64,280},{88,280},{88,257},{280,257},{281,279},{304,280},{305,304},{328,305},{329,329},{305,329},{305,352},{257,353},{257,376},{64,377},{64,353},{88,352},{89,304},{136,305},{137,329},{112,330},{112,353},{136,352},{137,377},{40,353},{40,281},{88,280},{89,305},{64,304},{64,352},{208,377},{208,329},{232,329},{233,377},{207,281},{208,305},{232,305},{232,329},{256,330},{257,305},{304,305},{304,280},{64,257},{232,257},{232,232},{280,233},{280,208},{304,209},{305,185},{256,185},{256,161},{65,161},{64,185},{16,185},{16,209},{40,209},{40,233},{64,233},{112,256},{113,184},{88,185},{89,137},{64,137},{65,89},{136,89},{137,113},{184,113},{184,89},{256,89},{257,137},{233,137},{233,185},{208,185},{208,232},{184,233},{184,209},{136,209},{137,257},{112,184},{136,161},{184,185},{208,161},{16,185},{16,113},{64,113},{64,137},{88,137},{88,161},{64,161},{64,185},{233,161},{256,160},{256,185},{304,185},{304,113},{257,112},{256,137},{233,137},{16,41},{113,41},{112,89},{40,89},{40,65},{16,65},{208,41},{208,89},{281,89},{281,65},{305,65},{305,41}};
         
         glBegin(GL_POLYGON);
-        glColor3ub(181,50,32); //THE HAT
+        glColor3f(0.984413,0.05098,0.10588); //THE HAT
         glVertex2fv(ptm[0]);
         glVertex2fv(ptm[1]);
         glVertex2fv(ptm[2]);
@@ -261,7 +321,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(234,159,34); //COMPLEXION FACE
+        glColor3f(0.9725,0.7529,0.58039);//COMPLEXION FACE
         glVertex2fv(ptm[8]);
         glVertex2fv(ptm[9]);
         glVertex2fv(ptm[10]);
@@ -279,7 +339,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(107,109,0); //SIDE BURNS
+        glColor3f(0.5803,0.28235,0.08235); //SIDE BURNS
         glVertex2fv(ptm[22]);
         glVertex2fv(ptm[23]);
         glVertex2fv(ptm[24]);
@@ -293,7 +353,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(107,109,0); //HAIR BEHIND
+        glColor3f(0.5803,0.28235,0.08235); //HAIR BEHIND
         glVertex2fv(ptm[32]);
         glVertex2fv(ptm[33]);
         glVertex2fv(ptm[34]);
@@ -303,7 +363,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(107,109,0); //EYE
+        glColor3f(0,0,0); //EYE
         glVertex2fv(ptm[38]);
         glVertex2fv(ptm[39]);
         glVertex2fv(ptm[40]);
@@ -311,7 +371,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(107,109,0); //STACHE
+        glColor3f(0,0,0); //STACHE
         glVertex2fv(ptm[42]);
         glVertex2fv(ptm[43]);
         glVertex2fv(ptm[44]);
@@ -323,7 +383,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(107,109,0); //SHIRT
+        glColor3f(0.97254,0.058823,0.10980); //SHIRT
         glVertex2fv(ptm[50]);
         glVertex2fv(ptm[51]);
         glVertex2fv(ptm[52]);
@@ -343,7 +403,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(234,159,34); //HAND 1
+        glColor3f(0.9725,0.7529,0.58039); //HAND 1
         glVertex2fv(ptm[90]);
         glVertex2fv(ptm[91]);
         glVertex2fv(ptm[92]);
@@ -355,7 +415,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(234,159,34); //HAND 2
+        glColor3f(0.9725,0.7529,0.58039); //HAND 2
         glVertex2fv(ptm[98]);
         glVertex2fv(ptm[99]);
         glVertex2fv(ptm[100]);
@@ -367,7 +427,7 @@ void drawMario()
         glEnd();
         
         glBegin(GL_POLYGON);
-        glColor3ub(181,50,32); //RED STRAPS
+        glColor3f(0.070588,0.44705,0.745098); //BLUE STRAPS
         glVertex2fv(ptm[66]);
         glVertex2fv(ptm[67]);
         glVertex2fv(ptm[68]);
@@ -390,12 +450,13 @@ void drawMario()
         glVertex2fv(ptm[85]);
         glEnd();
         
-        glColor3ub(234,159,34); //BUTTONS
+        glColor3f(0.99215,0.98823,0.21568); //BUTTONS
         glRectf(112,184,136,161);
+        glColor3f(0.99215,0.98823,0.21568);
         glRectf(184,185,208,161);
         
         glBegin(GL_POLYGON);
-        glColor3ub(107,109,0); //LEFT SHOE
+        glColor3f(0.58823,0.28235,0.07843); //LEFT SHOE
         glVertex2fv(ptm[106]);
         glVertex2fv(ptm[107]);
         glVertex2fv(ptm[108]);
@@ -404,8 +465,7 @@ void drawMario()
         glVertex2fv(ptm[111]);
         glEnd();
         glBegin(GL_POLYGON);
-        
-        glColor3ub(107,109,0); //RIGHT SHOE
+        glColor3f(0.58823,0.28235,0.07843); //RIGHT SHOE
         glVertex2fv(ptm[112]);
         glVertex2fv(ptm[113]);
         glVertex2fv(ptm[114]);
@@ -583,7 +643,7 @@ void drawCloud()
 void drawGround()
 {
         //draw and fill Color for the square
-        glColor3ub(groundx,groundy,groundz);
+        glColor3ub(231,95,19);
         glBegin(GL_POLYGON);
         glVertex2f(0,0);
         glVertex2f(20,0);
@@ -591,7 +651,6 @@ void drawGround()
         glVertex2f(0,20);
         glEnd();
         
-        glLineWidth(2.4);
         //Black Shade on Bottom and Right edge
         glColor3f(0,0,0);
         glBegin(GL_LINE_STRIP);
@@ -732,7 +791,7 @@ void drawBrick()
         glVertex2f(75,74);
         glEnd();
         
-        glColor3ub(brickx,bricky,brickz);
+        glColor3ub(230,95,19);
         
         //5 Inner Rectangles(bricks)
         glPushMatrix();
@@ -912,471 +971,335 @@ void drawHouse()
 
 
 
-void scene1()
-{
-        GLint i,j;
-        
-        glClearColor(0.329411,0.54505,1,1); //Blue sky
-        glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
-        glLoadIdentity();
-        gluOrtho2D(0,600,0,400); //The Scale for the Window
-        
-        
-        
-        /*glPushMatrix();    //Coin
-         glTranslatef(250, 56, 0);
-         glScalef(0.015, 0.015, 0);
-         drawCoin();
-         glPopMatrix();*/
-        
-        
-        
-        glPushMatrix();    //Pipe
-        glTranslatef(521, 31, 0);
-        glScalef(0.055, 0.07, 0);
-        drawPipe();
-        glPopMatrix();
-        
-        
-        
-        glPushMatrix();    //Goomba
-        glTranslatef(415, 42, 0);
-        glScalef(0.035, 0.035, 0);
-        drawGoomba();
-        glPopMatrix();
-        
-        
-        
-        glPushMatrix();    //Mushroom
-        glTranslatef(374, 142, 0);
-        glScalef(0.035, 0.035, 0);
-        drawMushroom();
-        glPopMatrix();
-        
-        
-        
-        glPushMatrix();//Left cloud
-        glTranslatef(125,250,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        
-        glPushMatrix();//Center cloud
-        glTranslatef(350,300,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        
-        //Three Clouds
-        draw3Cloud();
-        
-        
-        
-        //Green Mountain
-        glPushMatrix();
-        glTranslatef(264,40,0);
-        glScalef(.35,.35,0);
-        drawMountain();
-        glPopMatrix();
-        
-        glPushMatrix();
-        glTranslatef(-125,40,0);
-        glScalef(.8,.7,0);
-        drawMountain();
-        glPopMatrix();
-        
-        
-        
-        //Grass
-        glPushMatrix();
-        x1=183;
-        x2=248;
-        x3=24;
-        glTranslatef(-340,-235,0);
-        draw3Cloud();
-        
-        glTranslatef(791,251,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        
-        
-        
-        //Ground Blocks
-        glPushMatrix();
-        
-        glColor3f(0,0,0);
-        glRectf(0,0,600,42);
-        
-        glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
-        for(i=0;i<50;i++)
-        {
-                drawGround();
-                glTranslatef(21,0,0);   //Place each brick after 21 units
-        }
-        glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
-        glPushMatrix();
-        for(i=0;i<50;i++)
-        {
-                drawGround();
-                glTranslatef(21,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        
-        //Bricks
-        glPushMatrix();
-        glTranslatef(352,120,0);
-        for(j=0;j<3;j++)
-        {
-                glPushMatrix();
-                glScalef(.3,.3,0);
-                drawBrick();
-                glPopMatrix();
-                
-                glTranslatef(45,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        
-        //Question Mark
-        glPushMatrix();
-        glTranslatef(374.5,120,0);
-        glScalef(1.406,1.406,0);
-        drawQuestionbrick();
-        
-        glTranslatef(32,0,0);
-        drawQuestionbrick();
-        
-        glTranslatef(-108,0,0);
-        drawQuestionbrick();
-        
-        glTranslatef(92,68,0);
-        drawQuestionbrick();
-        glPopMatrix();
-        
-        
-        
-        
-        //Display Mario at Start position
-        glPushMatrix();
-        glTranslatef(70,40,0);
-        glScalef(.055,.05,0);   //For Bigger Version use (.075,.09,0)
-        drawMario();
-        glPopMatrix();
-        x1=255;x2=255;x3=255;
-        
-        glFlush();
-}
+/*void scene1()
+ {
+ GLint i,j;
+ 
+ glClearColor(0.329411,0.54505,1,1); //Blue sky
+ glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
+ glLoadIdentity();
+ gluOrtho2D(0,600,0,400); //The Scale for the Window
+ 
+ 
+ glPushMatrix();    //Flagpole
+ glTranslatef(370, 220, 0);
+ glScalef(0.059, 0.066, 0);
+ drawFlagpole();
+ glPopMatrix();
+ 
+ 
+ glPushMatrix();    //Coin
+ glTranslatef(250, 56, 0);
+ glScalef(0.015, 0.015, 0);
+ drawCoin();
+ glPopMatrix();
+ 
+ 
+ 
+ glPushMatrix();    //Pipe
+ glTranslatef(521, 31, 0);
+ glScalef(0.055, 0.07, 0);
+ drawPipe();
+ glPopMatrix();
+ 
+ 
+ 
+ glPushMatrix();    //Goomba
+ glTranslatef(415, 42, 0);
+ glScalef(0.035, 0.035, 0);
+ drawGoomba();
+ glPopMatrix();
+ 
+ 
+ 
+ glPushMatrix();    //Mushroom
+ glTranslatef(374, 142, 0);
+ glScalef(0.035, 0.035, 0);
+ drawMushroom();
+ glPopMatrix();
+ 
+ 
+ 
+ glPushMatrix();//Left cloud
+ glTranslatef(125,250,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ 
+ glPushMatrix();//Center cloud
+ glTranslatef(350,300,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ 
+ //Three Clouds
+ draw3Cloud();
+ 
+ 
+ //Green Mountain
+ glPushMatrix();
+ glTranslatef(264,40,0);
+ glScalef(.35,.35,0);
+ drawMountain();
+ glPopMatrix();
+ 
+ glPushMatrix();
+ glTranslatef(-95,40,0);
+ glScalef(.7,.7,0);
+ drawMountain();
+ glPopMatrix();
+ 
+ 
+ //Grass
+ glPushMatrix();
+ x1=183;
+ x2=248;
+ x3=24;
+ glTranslatef(-340,-235,0);
+ draw3Cloud();
+ 
+ glTranslatef(791,251,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ 
+ //Ground Blocks
+ glPushMatrix();
+ glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
+ for(i=0;i<50;i++)
+ {
+ drawGround();
+ glTranslatef(21,0,0);   //Place each brick after 21 units
+ }
+ glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
+ 
+ glPushMatrix();
+ for(i=0;i<50;i++)
+ {
+ drawGround();
+ glTranslatef(21,0,0);
+ }
+ glPopMatrix();
+ 
+ 
+ 
+ 
+ //Bricks
+ glPushMatrix();
+ glTranslatef(352,120,0);
+ for(j=0;j<3;j++)
+ {
+ glPushMatrix();
+ glScalef(.3,.3,0);
+ drawBrick();
+ glPopMatrix();
+ 
+ glTranslatef(45,0,0);
+ }
+ glPopMatrix();
+ 
+ 
+ 
+ 
+ //Question Mark
+ glPushMatrix();
+ glTranslatef(374.5,120,0);
+ glScalef(1.406,1.406,0);
+ drawQuestionbrick();
+ 
+ glTranslatef(32,0,0);
+ drawQuestionbrick();
+ 
+ glTranslatef(-108,0,0);
+ drawQuestionbrick();
+ 
+ glTranslatef(92,68,0);
+ drawQuestionbrick();
+ glPopMatrix();
+ 
+ 
+ 
+ 
+ //Display Mario at Start position
+ glPushMatrix();
+ glTranslatef(70,40,0);
+ glScalef(.06,.06,0);
+ drawMario();
+ glPopMatrix();
+ x1=255;x2=255;x3=255;
+ 
+ glFlush();
+ }
+ */
 
 
 
+/*void scene3()
+ {
+ GLint i,j;
+ 
+ glClearColor(0.329411,0.54505,1,1); //Blue sky
+ glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
+ glLoadIdentity();
+ gluOrtho2D(0,600,0,400); //The Scale for the Window
+ 
+ glPushMatrix();    //Pipe1
+ glTranslatef(22, 31, 0);
+ glScalef(0.055, 0.07, 0);
+ drawPipe();
+ glTranslatef(312/.055,0,0);//Pipe2
+ drawPipe();
+ glPopMatrix();
+ 
+ 
+ 
+ glPushMatrix();    //Goomba1
+ glTranslatef(252, 42, 0);
+ glScalef(0.035, 0.035, 0);
+ drawGoomba();
+ glTranslatef(31/.035,0,0);//Goomba2
+ drawGoomba();
+ glPopMatrix();
+ 
+ 
+ 
+ glPushMatrix();//Left cloud
+ glTranslatef(31,300,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ 
+ //Three Clouds(Placed at Center)
+ glPushMatrix();
+ glTranslatef(-300,25,0);
+ draw3Cloud();
+ glPopMatrix();
+ 
+ glPushMatrix();//Right cloud1
+ glTranslatef(400,300,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ glPushMatrix();//Right cloud2
+ glTranslatef(425,300,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ 
+ 
+ 
+ //Green Mountain
+ glPushMatrix();
+ glTranslatef(-60,40,0);
+ glScalef(.35,.35,0);
+ drawMountain();
+ glPopMatrix();
+ 
+ 
+ 
+ //Grass
+ glPushMatrix();
+ x1=183;
+ x2=248;
+ x3=24;
+ 
+ glTranslatef(111,15,0);
+ glScalef(.3,.3,0);
+ drawCloud();
+ glPopMatrix();
+ 
+ 
+ 
+ //Ground Blocks
+ glPushMatrix();
+ glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
+ for(i=0;i<50;i++)
+ {
+ drawGround();
+ glTranslatef(21,0,0);   //Place each brick after 21 units
+ }
+ glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
+ 
+ glPushMatrix();
+ for(i=0;i<50;i++)
+ {
+ drawGround();
+ glTranslatef(21,0,0);
+ }
+ glPopMatrix();
+ 
+ 
+ 
+ //Bricks
+ glPushMatrix();
+ glTranslatef(147,120,0);
+ for(j=0;j<4;j++)//Draw 4 bricks
+ {
+ glPushMatrix();
+ glScalef(.3,.3,0);
+ drawBrick();
+ glPopMatrix();
+ 
+ glTranslatef(21,0,0);
+ }
+ glPopMatrix();
+ 
+ 
+ 
+ //Question Mark
+ glPushMatrix();//3rd brick is replaced by question mark
+ glTranslatef(189,120,0);
+ glScalef(1.406,1.406,0);
+ drawQuestionbrick();
+ glPopMatrix();
+ 
+ 
+ 
+ //Steps
+ glPushMatrix();
+ glTranslatef(400,42,0);
+ //glTranslatef(252,42,0);
+ 
+ for(i=9;i>0;i--)
+ {
+ if(i==1)
+ break;
+ for(j=0;j<i;j++)
+ {
+ glPushMatrix();
+ glScalef(1.3125,1.3125,0);
+ drawStep();
+ glPopMatrix();
+ 
+ glTranslatef(21,0,0);   //Place each block after 21 units
+ }
+ glTranslatef(-(i-1)*21,21,0);
+ }
+ glPopMatrix();
+ 
+ 
+ x1=x2=x3=255;
+ 
+ glFlush();
+ }
+ */
 
-void scene2()
-{
-        
-        GLint i,j;
-        
-        glClearColor(0,0,0,1); //Blue sky
-        glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
-        glLoadIdentity();
-        gluOrtho2D(0,410,0,273); //The Scale for the Window
-        
-        
-        //Left Wall
-        glPushMatrix();
-        brickx=0;bricky=128;brickz=136;
-        glTranslatef(0,41,0);
-        for(j=0;j<11;j++)
-        {
-                glPushMatrix();
-                glScalef(.3,.3,0);
-                drawBrick();
-                glPopMatrix();
-                
-                glTranslatef(0,21,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        //Mid Floor Raise
-        glPushMatrix();
-        glTranslatef(105,41,0);
-        for(i=0;i<3;i++)
-        {
-                for(j=0;j<7;j++)
-                {
-                        glPushMatrix();
-                        glScalef(.3,.3,0);
-                        drawBrick();
-                        glPopMatrix();
-                        
-                        glTranslatef(21,0,0);
-                }
-                glTranslatef(-147,21,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        //Ceiling Bricks
-        glPushMatrix();
-        glTranslatef(105,252,0);
-        for(j=0;j<7;j++)
-        {
-                glPushMatrix();
-                glScalef(.3,.3,0);
-                drawBrick();
-                glPopMatrix();
-                
-                glTranslatef(21,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        
-        //Coins
-        glPushMatrix();
-        glTranslatef(108,105,0);
-        for(i=0;i<2;i++)    //Bottom and Middle Row
-        {
-                for(j=0;j<7;j++)
-                {
-                        glPushMatrix();
-                        glScalef(.02,.02,0);
-                        drawCoin();
-                        glPopMatrix();
-                        
-                        glTranslatef(21,0,0);
-                }
-                glTranslatef(-147,42,0);
-        }
-        glPopMatrix();
-        
-        glPushMatrix();     //Top Row
-        glTranslatef(129,189,0);
-        for(j=0;j<5;j++)
-        {
-                glPushMatrix();
-                glScalef(.02,.02,0);
-                drawCoin();
-                glPopMatrix();
-                
-                glTranslatef(21,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        //Pipe
-        glPushMatrix();
-        
-        glTranslatef(392, 42, 0);
-        glRotatef(90,0,0,1);
-        glScalef(0.04, 0.06, 0);
-        drawPipe();
-        
-        glRotatef(270,0,0,1);
-        glTranslatef(-4/.04,-7/.04,0);
-        glScalef(.6,20,0);
-        drawPipe();
-        
-        glPopMatrix();
-        
-        
-        
-        
-        //Ground Blocks
-        glPushMatrix();
-        groundx=0;groundy=128;groundz=136;
-        glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
-        for(i=0;i<50;i++)
-        {
-                drawGround();
-                glTranslatef(21,0,0);   //Place each brick after 21 units
-        }
-        glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
-        glPushMatrix();
-        for(i=0;i<50;i++)
-        {
-                drawGround();
-                glTranslatef(21,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        brickx=231;bricky=95;brickz=19;
-        groundx=230;groundy=95;groundz=19;
-        
-        
-        glFlush();
-        
-}
 
 
-
-
-void scene3()
-{
-        GLint i,j;
-        
-        glClearColor(0.329411,0.54505,1,1); //Blue sky
-        glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
-        glLoadIdentity();
-        gluOrtho2D(0,600,0,400); //The Scale for the Window
-        
-        glPushMatrix();    //Pipe1
-        glTranslatef(22, 31, 0);
-        glScalef(0.055, 0.07, 0);
-        drawPipe();
-        glTranslatef(312/.055,0,0);//Pipe2
-        drawPipe();
-        glPopMatrix();
-        
-        
-        
-        glPushMatrix();    //Goomba1
-        glTranslatef(252, 42, 0);
-        glScalef(0.035, 0.035, 0);
-        drawGoomba();
-        glTranslatef(31/.035,0,0);//Goomba2
-        drawGoomba();
-        glPopMatrix();
-        
-        
-        
-        glPushMatrix();//Left cloud
-        glTranslatef(31,300,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        
-        //Three Clouds(Placed at Center)
-        glPushMatrix();
-        glTranslatef(-300,25,0);
-        draw3Cloud();
-        glPopMatrix();
-        
-        glPushMatrix();//Right cloud1
-        glTranslatef(400,300,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        glPushMatrix();//Right cloud2
-        glTranslatef(425,300,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        
-        
-        
-        //Green Mountain
-        glPushMatrix();
-        glTranslatef(-60,40,0);
-        glScalef(.35,.35,0);
-        drawMountain();
-        glPopMatrix();
-        
-        
-        
-        //Grass
-        glPushMatrix();
-        x1=183;
-        x2=248;
-        x3=24;
-        
-        glTranslatef(111,15,0);
-        glScalef(.3,.3,0);
-        drawCloud();
-        glPopMatrix();
-        
-        
-        
-        //Ground Blocks
-        glPushMatrix();
-        
-        glColor3f(0,0,0);
-        glRectf(0,0,600,42);
-        
-        glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
-        for(i=0;i<50;i++)
-        {
-                drawGround();
-                glTranslatef(21,0,0);   //Place each brick after 21 units
-        }
-        glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
-        glPushMatrix();
-        for(i=0;i<50;i++)
-        {
-                drawGround();
-                glTranslatef(21,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        //Bricks
-        glPushMatrix();
-        glTranslatef(147,120,0);
-        for(j=0;j<4;j++)//Draw 4 bricks
-        {
-                glPushMatrix();
-                glScalef(.3,.3,0);
-                drawBrick();
-                glPopMatrix();
-                
-                glTranslatef(21,0,0);
-        }
-        glPopMatrix();
-        
-        
-        
-        //Question Mark
-        glPushMatrix();//3rd brick is replaced by question mark
-        glTranslatef(189,120,0);
-        glScalef(1.406,1.406,0);
-        drawQuestionbrick();
-        glPopMatrix();
-        
-        
-        
-        //Steps
-        glPushMatrix();
-        glTranslatef(400,42,0);
-        //glTranslatef(252,42,0);
-        
-        for(i=9;i>0;i--)
-        {
-                if(i==1)
-                        break;
-                for(j=0;j<i;j++)
-                {
-                        glPushMatrix();
-                        glScalef(1.3125,1.3125,0);
-                        drawStep();
-                        glPopMatrix();
-                        
-                        glTranslatef(21,0,0);   //Place each block after 21 units
-                }
-                glTranslatef(-(i-1)*21,21,0);
-        }
-        glPopMatrix();
-        
-        
-        x1=x2=x3=255;
-        
-        glFlush();
-}
+//               Windows:Ctrl+Shift+C to comment and Ctrl+Shift+X to uncomment
+//void windowResized(int w, int h)
+//{
+//        glViewport(0,0,w,h);
+//        glMatrixMode(GL_PROJECTION);
+//        glLoadIdentity();
+//
+//        if(w<=h)
+//            gluOrtho2D(0,600,0,400*(GLfloat)(h/w));
+//        else
+//            gluOrtho2D(0,600*(GLfloat)(w/h),0,400);
+//        glMatrixMode(GL_MODELVIEW);
+//
+//}
 
 
 
@@ -1448,10 +1371,6 @@ void scene4()
         
         //Ground Blocks
         glPushMatrix();
-        
-        glColor3f(0,0,0);
-        glRectf(0,0,600,42);
-        
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
@@ -1518,8 +1437,8 @@ void scene4()
         //Display Mario on top of the Stairs
         glPushMatrix();
         glTranslatef(21,209,0);
-        glScalef(.055,.05,0);
-        drawMario();
+        glScalef(0.04,0.04,0);
+        drawRunningMario();
         glPopMatrix();
         
         x1=255;x2=255;x3=255;
@@ -1534,95 +1453,15 @@ void scene4()
 
 
 
-
-/*void myTimer(int n)
- {
- 
- 
- }*/
-
-
-
-//      Windows:Ctrl+Shift+C to comment and Ctrl+Shift+X to uncomment
-/*
- void windowResized(int w,int h)
- {
- glViewport(0,0,w,h);
- glMatrixMode(GL_PROJECTION);
- glLoadIdentity();
- 
- if(w<=h)
- gluOrtho2D(0,600,0,400*(GLfloat)(h/w));
- else
- gluOrtho2D(0,600*(GLfloat)(w/h),0,400);
- glMatrixMode(GL_MODELVIEW);
- 
- }*/
-
-
-
-
-void myKey(unsigned char c, int x, int y)
-{
-        if(c=='n')
-                next++;
-        else if(c=='b')
-                next--;
-        else
-                return; //Don't proceed
-        
-        
-        if(next==0)
-                scenePointer = &scene1; //Set Display Function as Scene1
-        
-        if(next==1)
-                scenePointer = &scene2; //Set Display Function as Scene2
-        
-        if(next==2)
-                scenePointer = &scene3; //Set Display Function as Scene3
-        
-        if(next==3)
-                scenePointer = &scene4; //Set Display Function as Scene4
-        
-        if(next<0)
-                next=0;
-        
-        if(next>3)
-                next=3;
-        
-        glutPostRedisplay();
-}
-
-
-
-
-void currentDisplay()
-{
-        
-        (*scenePointer)();  //POinter function that points to one of the 4 Scenes
-        
-}
-
-
-
-
 int main(int argc,char **argv)
 {
-        glutInit(&argc,argv); //Initialize graphics libraries
+        glutInit(&argc,argv); //intialize graphics libraries
         glutInitWindowSize(750,500);
         glutInitWindowPosition(0,0);
         glutCreateWindow("Mario v1.1");
-        
-        if(flag==0)
-        {
-                scenePointer=&scene1;
-                flag=1;
-        }
-        
-        glutDisplayFunc(currentDisplay);
-        //glutReshapeFunc(windowResized);
-        //glutTimerFunc(myTimer);
-        glutKeyboardFunc(myKey);
+        //glutDisplayFunc(scene1);
+        //glutDisplayFunc(scene3);
+        glutDisplayFunc(scene4);
         glutMainLoop();
         return 0;
 }
