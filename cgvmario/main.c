@@ -1099,7 +1099,7 @@ void drawBattlements()
         glBegin(GL_LINES);
                 glLineWidth(1.5);
                 glColor3ub(0, 0, 0);
-                glVertex2f(291,496);  //EXTRA LINES FOR BETTER DETAIL
+                glVertex2f(291,496);   //EXTRA LINES FOR BETTER DETAIL
                 glVertex2f(333,496);
                 glVertex2f(432,496);
                 glVertex2f(535,496);
