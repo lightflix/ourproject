@@ -1,14 +1,27 @@
+
 //
 //  main.c
 //  sample
 //
-//  Created b
-enGL/glu.h>
+//  Created by Lloyd Fernandes and Calvin Menezes
+//  Copyright © 2017. All rights reserved.
+//
+
+
+/*WINDOWS HEADERS*/
+#include<stdio.h>
+#include<GL/gl.h>
+#include<GL/glut.h>
+#include<windows.h>
+#include<math.h>
+
+/*MAC HEADERS*/
+/*#include<OpenGL/gl.h>
+#include<OpenGL/glu.h>
 #include<OpenGL/glext.h>
 #include<GLUT/glut.h>
 #include<stdio.h>
 */
-
 
 
 
