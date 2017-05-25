@@ -1114,7 +1114,7 @@ void drawBattlements()
         glBegin(GL_LINES);
                 glLineWidth(1.26);
                 glColor3ub(244, 189, 176);
-                glVertex2f(291,583);  //BORDER OF BATTLEMENTS 2
+                glVertex2f(291,583);   //BORDER OF BATTLEMENTS 2
                 glVertex2f(333,583);
                 glVertex2f(333,583);
                 glVertex2f(333,495);
