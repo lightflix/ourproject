@@ -9,23 +9,23 @@
 
 
 /*WINDOWS HEADERS*/
-#include<stdio.h>
-#include<GL/gl.h>
-#include<GL/glut.h>
-#include<windows.h>
-#include<math.h>
+//#include<stdio.h>
+//#include<GL/gl.h>
+//#include<GL/glut.h>
+//#include<windows.h>
+//#include<math.h>
 
 /*MAC HEADERS*/
-/*#include<OpenGL/gl.h>
+#include<OpenGL/gl.h>
 #include<OpenGL/glu.h>
 #include<OpenGL/glext.h>
 #include<GLUT/glut.h>
 #include<stdio.h>
-*/
 
 
 
-double time=0;
+
+double tyme=0;
 GLfloat goombaX=415;
 GLint goombaRight=1;    //goombaRight=1 indicates that he's moving in the Right direction, 0 indicates left
 
@@ -604,7 +604,7 @@ void drawCloud()
 
 
 
-void drawGround()
+void drawGroundBricks()
 {
         //draw and fill Color for the square
         glColor3ub(groundx,groundy,groundz);
@@ -714,6 +714,113 @@ void drawGround()
 
 
 
+void drawGroundBricks2()
+{
+        //draw and fill Color for the square
+        glColor3ub(groundx,groundy,groundz);
+        glBegin(GL_POLYGON);
+        glVertex2f(0,0);
+        glVertex2f(20,0);
+        glVertex2f(20,20);
+        glVertex2f(0,20);
+        glEnd();
+        
+        glLineWidth(2.4);
+        //Black Shade on Bottom and Right edge
+        glColor3f(0,0,0);
+        glBegin(GL_LINE_STRIP);
+        glVertex2f(0,0);
+        glVertex2f(20,0);
+        glVertex2f(20,20);
+        glEnd();
+        
+        //White Shade  on Top and Left edge
+        glColor3ub(166,246,245);
+        glBegin(GL_LINE_STRIP);
+        glVertex2f(0,0);
+        glVertex2f(0,20);
+        glVertex2f(20,20);
+        glEnd();
+        
+        //Interior Black Shade lines
+        glColor3f(0,0,0);
+        GLfloat b[50]={3,277,
+                9,277,
+                17,277,
+                49,276,
+                58,278,
+                57,297,
+                98,297,
+                109,298,
+                110,322,
+                195,321,
+                224,321,
+                223,271,
+                250,271,
+                249,34,
+                250,146,
+                385,146,
+                250,146,
+                250,0
+        };
+        
+        GLfloat line[18][2];
+        GLint i,j;
+        GLint k=0;
+        
+        for(i=0;i<18;i++)
+                for(j=0;j<2;j++)
+                {
+                        if(k%2==1)      //Y coordinate Transformation
+                                b[k]=420-b[k];
+                        line[i][j]=( b[k] * (.0476) );  //Scaled from size 420 to 20. Hence the scaling factor
+                        k++;
+                }
+        
+        glLineWidth(2);
+        glBegin(GL_LINE_STRIP); //Draw the lines
+        for(i=0;i<18;i++)
+                glVertex2fv(line[i]);
+        glEnd();
+        
+        
+        
+        //Interior white shading Line
+        glColor3ub(166,246,245);
+        GLfloat b1[50]={34,303,
+                47,303,
+                47,326,
+                98,327,
+                97,355,
+                223,356,
+                223,325,
+                253,325,
+                252,272,
+                274,272,
+                274,170,
+                381,168,
+                273,171,
+                272,39,
+                272,0
+        };
+        //Concept is same as the one used in White shading Line
+        GLfloat line1[15][2];
+        k=0;
+        
+        for(i=0;i<15;i++)
+                for(j=0;j<2;j++)
+                {
+                        if(k%2==1)
+                                b1[k]=420-b1[k];
+                        line1[i][j]=( b1[k] * (.0476) );
+                        k++;
+                }
+        glLineWidth(1.4);
+        glBegin(GL_LINE_STRIP);
+        for(i=0;i<15;i++)
+                glVertex2fv(line1[i]);
+        glEnd();
+}
 
 void draw3Cloud()
 {
@@ -903,11 +1010,143 @@ void drawFlagpole()
 }
 
 
-
-
-void drawHouse()
+void drawBattlements()
 {
-        GLint i,j;
+        glTranslatef(-256, -34, 0);
+        glScalef(0.38, 0.38, 0);
+        
+        glColor3ub(230, 95, 19);
+        glRectf(93,183,135,95);  //BATTLEMENTS 1 FILL
+        glRectf(230,181,339,93);
+        glRectf(434,183,538,93);
+        glRectf(634,181,740,91);
+        glRectf(833,183,940,91);
+        glRectf(1037,183,1075,97);
+        
+        glPushMatrix();
+        glTranslatef(0, -30, 0); //BATTLEMENTS 2 FILL
+        glScalef(1, 1.03, 0);
+        glRectf(289,580,333,502);
+        glRectf(436,582,537,500);
+        glRectf(634,582,736,500);
+        glRectf(833,584,888,500);
+        glPopMatrix();
+        
+        glLineWidth(1.5);
+        glBegin(GL_LINES);
+                glColor3ub(0, 0, 0);
+                glVertex2f(89,93);  //EXTRA LINES FOR BETTER DETAIL
+                glVertex2f(133,93);
+                glVertex2f(232,93);
+                glVertex2f(335,93);
+                glVertex2f(434,93);
+                glVertex2f(531,93);
+                glVertex2f(630,93);
+                glVertex2f(738,93);
+                glVertex2f(835,93);
+                glVertex2f(934,93);
+                glVertex2f(1033,93);
+                glVertex2f(1081,93);
+
+                glColor3ub(244, 189, 176);
+                glLineWidth(1.26);
+                glVertex2f(95,181);  //BORDER OF BATTLEMENT 1
+                glVertex2f(136,181);
+                glVertex2f(136,181);
+                glVertex2f(136,93);
+                glVertex2f(136,93);
+                glVertex2f(232,93);
+                glVertex2f(232,93);
+                glVertex2f(232,181);
+                glVertex2f(232,181);
+                glVertex2f(333,181);
+                glVertex2f(333,181);
+                glVertex2f(333,93);
+                glVertex2f(333,93);
+                glVertex2f(434,93);
+                glVertex2f(434,93);
+                glVertex2f(434,181);
+                glVertex2f(434,181);
+                glVertex2f(536,181);
+                glVertex2f(536,181);
+                glVertex2f(536,93);
+                glVertex2f(536,93);
+                glVertex2f(633,93);
+                glVertex2f(633,93);
+                glVertex2f(633,181);
+                glVertex2f(633,181);
+                glVertex2f(735,181);
+                glVertex2f(735,181);
+                glVertex2f(735,93);
+                glVertex2f(735,93);
+                glVertex2f(835,93);
+                glVertex2f(835,93);
+                glVertex2f(835,181);
+                glVertex2f(835,181);
+                glVertex2f(934,181);
+                glVertex2f(934,181);
+                glVertex2f(934,93);
+                glVertex2f(934,93);
+                glVertex2f(1033,93);
+                glVertex2f(1033,93);
+                glVertex2f(1033,181);
+                glVertex2f(1033,181);
+                glVertex2f(1086,181);
+        glEnd();
+        
+        glPushMatrix();
+        glTranslatef(0, -14, 0);
+        glBegin(GL_LINES);
+                glLineWidth(1.5);
+                glColor3ub(0, 0, 0);
+                glVertex2f(291,496);  //EXTRA LINES FOR BETTER DETAIL
+                glVertex2f(333,496);
+                glVertex2f(432,496);
+                glVertex2f(535,496);
+                glVertex2f(632,496);
+                glVertex2f(736,496);
+                glVertex2f(833,496);
+                glVertex2f(890,496);
+        glEnd();
+        glPopMatrix();
+        
+        glTranslatef(0, -8, 0);
+        glBegin(GL_LINES);
+                glLineWidth(1.26);
+                glColor3ub(244, 189, 176);
+                glVertex2f(291,583);  //BORDER OF BATTLEMENTS 2
+                glVertex2f(333,583);
+                glVertex2f(333,583);
+                glVertex2f(333,495);
+                glVertex2f(333,495);
+                glVertex2f(436,495);
+                glVertex2f(436,495);
+                glVertex2f(436,583);
+                glVertex2f(436,583);
+                glVertex2f(535,583);
+                glVertex2f(535,583);
+                glVertex2f(535,495);
+                glVertex2f(535,495);
+                glVertex2f(632,495);
+                glVertex2f(632,495);
+                glVertex2f(632,583);
+                glVertex2f(632,583);
+                glVertex2f(735,583);
+                glVertex2f(735,583);
+                glVertex2f(735,495);
+                glVertex2f(735,495);
+                glVertex2f(834,495);
+                glVertex2f(834,495);
+                glVertex2f(834,583);
+                glVertex2f(834,583);
+                glVertex2f(890,583);
+        glEnd();
+}
+
+void drawCastle()
+{
+        
+                GLint i,j;
         for(i=0;i<3;i++)        //Ground Floor
         {
 
@@ -940,7 +1179,9 @@ void drawHouse()
 
         glTranslatef(110,0,0);
         glRectf(0,0,37.5,73);
-
+        
+        drawBattlements(); //Battlements
+        
 }
 
 
@@ -1107,7 +1348,7 @@ void scene1()
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks();
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
@@ -1115,7 +1356,7 @@ void scene1()
         glPushMatrix();
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks();
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
@@ -1199,7 +1440,7 @@ void scene2()
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks2();
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
@@ -1207,7 +1448,7 @@ void scene2()
         glPushMatrix();
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks2();
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
@@ -1464,7 +1705,7 @@ void scene3()
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks();
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
@@ -1472,7 +1713,7 @@ void scene3()
         glPushMatrix();
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks();
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
@@ -1532,7 +1773,7 @@ void scene4()
         x2=248;
         x3=24;
 
-        glTranslatef(345,15,0);
+        glTranslatef(350,15,0);
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
@@ -1548,7 +1789,7 @@ void scene4()
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks();
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
@@ -1556,7 +1797,7 @@ void scene4()
         glPushMatrix();
         for(i=0;i<50;i++)
         {
-                drawGround();
+                drawGroundBricks();
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
@@ -1610,7 +1851,7 @@ void scene4()
         glPushMatrix(); //House
         glTranslatef(272,41.5,0);
         glScalef(.28,.28,0);
-            drawHouse();
+            drawCastle();
         glPopMatrix();
 
 
@@ -1646,7 +1887,7 @@ void scene4()
 
 void resetScene1()
 {
-        time=0;
+        tyme=0;
         goombaX=415;
         goombaRight=1;    //goombaRight=1 indicates that he's moving in the Right direction, 0 indicates left
 
@@ -1663,7 +1904,7 @@ void resetScene1()
 
 void resetScene2()
 {
-        time=0;
+        tyme=0;
 
         marioX=21,marioY=274;       //Mario before free fall
         marioUp=0,marioHoriz=0;    //Mario has to move downwards
@@ -1677,7 +1918,7 @@ void resetScene2()
 
 void resetScene3()
 {
-        time=0;
+        tyme=0;
         goomba1X=252;
         goomba2X=284;
         goomba1Right=1;    //goombaRight=1 indicates that he's moving in the Right direction, 0 indicates left
@@ -1694,7 +1935,7 @@ void resetScene3()
 
 void resetScene4()
 {
-        time=0;
+        tyme=0;
 
         marioX=21,marioY=209,marioZ=0;
         marioUp=1,marioHoriz=1;
@@ -1711,7 +1952,7 @@ void resetScene4()
 void myTimer1(int n)
 {
 
-        time+=10;   //Count time in miliseconds
+        tyme+=10;   //Count time in miliseconds
 
         if(marioUp==0 && marioHoriz==1)
             marioX+=2;      //Mario moves Horizontally
@@ -1728,26 +1969,26 @@ void myTimer1(int n)
         if(mushMove==1)
             mushX+=1;       //Mushroom starts moving horizontally
 
-        if(time==1530)      //Jump Up to hit the question mark
+        if(tyme==1530)      //Jump Up to hit the question mark
         {
             marioUp=1;
             marioHoriz=0;
         }
 
-        if(time==1830)     //Let gravity do the job
+        if(tyme==1830)     //Let gravity do the job
         {
             marioUp=0;
             marioHoriz=0;
         }
 
-        if(time==2030)      //Continue running
+        if(tyme==2030)      //Continue running
         {
             marioHoriz=1;
             mushMove=1;     //Mushroom moves over the bricks
         }
 
 
-        if(time>=2430 && time<=2930)      //Mario Jumps
+        if(tyme>=2430 && tyme<=2930)      //Mario Jumps
         {
             marioHoriz=1;   //This is done in order to not match the first 3 if conditions
             marioUp=1;
@@ -1758,20 +1999,20 @@ void myTimer1(int n)
             }
         }
 
-        if(time>=2930)
+        if(tyme>=2930)
         {
             mushMove=0;     //Stop moving mushroom horizontally
             mushY-=1.01;    //Let it fall downwards
         }
 
-        if(time>=3930 && time<=4280)      //Mushroom is on the ground. Move it horizontally
+        if(tyme>=3930 && tyme<=4280)      //Mushroom is on the ground. Move it horizontally
         {
-            mushY+=1.01;   //Inorder to counter the statement 'mushY-=1.01;' . This is done because even 'if(time>=2930)' will be executed
+            mushY+=1.01;   //Inorder to counter the statement 'mushY-=1.01;' . This is done because even 'if(tyme>=2930)' will be executed
             mushMove=1;
             marioX+=.7;     //Mario moves to center of the Pipe
         }
 
-        if(time>=4280)
+        if(tyme>=4280)
         {
             mushMove=0;     //If set to 1, it'll move to the Right, hence set it to 0
             mushX-=1;       //Move Leftwards
@@ -1811,7 +2052,7 @@ void myTimer1(int n)
 void myTimer2()
 {
 
-        time+=10;   //Count time in miliseconds
+        tyme+=10;   //Count time in miliseconds
 
         if(marioUp==0 && marioHoriz==1)
             marioX+=1;      //Mario moves Horizontally
@@ -1826,14 +2067,14 @@ void myTimer2()
 
 
 
-        if(time==1170)
+        if(tyme==1170)
         {
             marioUp=1;      //Stop movement
             marioHoriz=1;
         }
 
 
-        if(time>=1530 && time<=2030)      //Mario Jumps
+        if(tyme>=1530 && tyme<=2030)      //Mario Jumps
         {
             if(i>150)       //Mario jumps onto the elevated floor having coins
             {   marioX=84+63*(-cos(3.14*i));
@@ -1842,42 +2083,42 @@ void myTimer2()
             }
         }
 
-        if(time==1970)      //Coin 1 disappears
+        if(tyme==1970)      //Coin 1 disappears
         {
             coinFLAG=1;
             marioUp=0;      //Start moving mario horizontally
         }
 
-        if(time==2170)      //Coin 2 disappears
+        if(tyme==2170)      //Coin 2 disappears
             coinFLAG=2;
 
-        if(time==2370)      //Coin 3 disappears
+        if(tyme==2370)      //Coin 3 disappears
             coinFLAG=3;
 
-        if(time==2570)      //Coin 4 disappears
+        if(tyme==2570)      //Coin 4 disappears
             coinFLAG=4;
 
-        if(time==2770)      //Coin 5 disappears
+        if(tyme==2770)      //Coin 5 disappears
             coinFLAG=5;
 
-        if(time==2970)      //Coin 6 disappears
+        if(tyme==2970)      //Coin 6 disappears
             coinFLAG=6;
 
-        if(time==3170)      //Coin 7 disappears
+        if(tyme==3170)      //Coin 7 disappears
             coinFLAG=7;
 
-        if(time==3550)
+        if(tyme==3550)
         {
             marioUp=1;
         }
 
-        if(time>=3550 && time<=3970)      //Mario falls to ground after collecting Coins
+        if(tyme>=3550 && tyme<=3970)      //Mario falls to ground after collecting Coins
         {
             marioX+=.75;
             marioY-=1.5;
         }
 
-        if(time==4000)                  //Enable Horizontal movement of Mario
+        if(tyme==4000)                  //Enable Horizontal movement of Mario
             marioUp=0;
 
 
@@ -1896,7 +2137,7 @@ void myTimer2()
 void myTimer3()
 {
 
-        time+=10;   //Count time in miliseconds
+        tyme+=10;   //Count time in miliseconds
 
         if(marioUp==0 && marioHoriz==1)
             marioX+=1;      //Mario moves Horizontally
@@ -1909,63 +2150,63 @@ void myTimer3()
         else if(marioUp==1 && marioHoriz==0)
             marioY+=.5;      //Mario moves Vertically upwards
 
-        if(time==860)       //Mario comes up the Pipe
+        if(tyme==860)       //Mario comes up the Pipe
             marioHoriz=1;
 
-        if(time>=1300 && time<=2000)      //Mario Jumps onto the bricks
+        if(tyme>=1300 && tyme<=2000)      //Mario Jumps onto the bricks
             if(i>150)
             {   marioX=126+84*(-cos(3.14*i));
                 marioY=89+84*(-sin(3.14*i));
                 i=i-.01;
             }
 
-        if(time==2050)                  //Move Mario horizontally on the bricks
+        if(tyme==2050)                  //Move Mario horizontally on the bricks
         {
             marioUp=0;
             i=180;      //Set angle value for the next jump
         }
 
-        if(time>=2300 && time<=2900)
+        if(tyme>=2300 && tyme<=2900)
             if(i>150)       //Mario is jumping onto the 2nd Pipe
             {   marioX=284+50*(-cos(3.14*i));
                 marioY=141+50*(-sin(3.14*i));
                 i=i-.015;
             }
 
-        if(time==2900)            //Free fall onto the Pipe
+        if(tyme==2900)            //Free fall onto the Pipe
         {
             marioUp=0;
             marioHoriz=0;
             i=180;                  //Set angle value for the next jump
         }
 
-        if(time==3180)             //Move towards the right
+        if(tyme==3180)             //Move towards the right
             marioHoriz=1;
 
-        if(time==3480)              //Stop
+        if(tyme==3480)              //Stop
             marioUp=1;
 
-        if(time>=3700 && time<=4400)
+        if(tyme>=3700 && tyme<=4400)
             if(i>179.44)       //Mario jumps onto the Stairs
             {   marioX=441+63*(-cos(3.14*i));
                 marioY=89+63*(-sin(3.14*i));
                 i=i-.01;
             }
 
-        if(time==4450)
+        if(tyme==4450)
             i=180;
 
-        if(time>=4500 && time<=5200)
+        if(tyme>=4500 && tyme<=5200)
             if(i>179.52)       //Mario jumps onto the Top Step
             {   marioX=533+63*(-cos(3.14*i));
                 marioY=147+63*(-sin(3.14*i));
                 i=i-.01;
             }
 
-        if(time==5250)
+        if(tyme==5250)
             marioUp=0;          //Mario moves horizontally
 
-        if(time==5470)
+        if(tyme==5470)
             marioUp=1;          //Stop Mario movement
 
 
@@ -2006,14 +2247,12 @@ void myTimer3()
 }
 
 
-
-
 //Animate Scene4
 
 void myTimer4()
 {
 
-        time+=10;   //Count time in miliseconds
+        tyme+=10;   //Count time in miliseconds
 
         if(marioUp==0 && marioHoriz==1)
             marioX+=1;      //Mario moves Horizontally
@@ -2026,14 +2265,14 @@ void myTimer4()
         else if(marioUp==1 && marioHoriz==0)
             marioY+=.5;      //Mario moves Vertically upwards
 
-        if(time>=500 && time<=1270)      //Mario Jumps onto the Flag
+        if(tyme>=500 && tyme<=1270)      //Mario Jumps onto the Flag
             if(i>150)
             {   marioX=115+94*(-cos(3.14*i));
                 marioY=209+94*(-sin(3.14*i));
                 i=i-.01;
             }
 
-        if(time>=1400 && time<=2500)    //Mario and Flag slide downwards
+        if(tyme>=1400 && tyme<=2500)    //Mario and Flag slide downwards
         {
             marioHoriz=0;
             marioUp=0;
@@ -2041,45 +2280,45 @@ void myTimer4()
 
         }
 
-        if(time==2500)          //Stop sliding
+        if(tyme==2500)          //Stop sliding
         {
             marioHoriz=1;
             marioUp=1;
         }
 
-        if(time==3000)          //Mario moves rightwards
+        if(tyme==3000)          //Mario moves rightwards
         {
             marioUp=0;
         }
 
-        if(time==3300)          //Falls onto the ground
+        if(tyme==3300)          //Falls onto the ground
         {
             marioHoriz=0;
         }
 
-        if(time==3590)          //Pause
+        if(tyme==3590)          //Pause
         {
             marioY--;           //Alignment with the Ground
             marioHoriz=1;
             marioUp=1;
         }
 
-        if(time==3700)          //Go towards the Castle
+        if(tyme==3700)          //Go towards the Castle
             marioUp=0;
 
-        if(time==4560)          //Go inside the Castle
+        if(tyme==4560)          //Go inside the Castle
         {
             marioUp=1;
             marioZ=3;
         }
 
-        if(time==8000)          //Walk towards the Pipe
+        if(tyme==8000)          //Walk towards the Pipe
         {
             marioZ=0;
             marioUp=0;
         }
 
-        if(time==9500)         //Enter the Pipe
+        if(tyme==9500)         //Enter the Pipe
         {
             marioHoriz=1;
             marioUp=1;
@@ -2100,11 +2339,11 @@ void myTimer4()
 
 void myKey(unsigned char c, int x, int y)
 {
-        if(c=='n')
+        if(c=='n'||c=='N')
             next++;
-        else if(c=='b')
+        else if(c=='b'||c=='B')
             next--;
-        else if(c=='q')     //Quit
+        else if(c=='q'||c=='Q')     //Quit
             exit(0);
         else
             return;         //Don't proceed
