@@ -2420,7 +2420,7 @@ void windowResized(int w,int h)
 
 int main(int argc,char **argv)
 {
-        glutInit(&argc,argv);           //Initialize graphics libraries
+        glutInit(&argc,argv);            //Initialize graphics libraries
         //glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA | GLUT_DEPTH);
         glutInitWindowSize(750,500);
         glutInitWindowPosition(0,0);
