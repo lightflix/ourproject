@@ -21,8 +21,7 @@
 #include<OpenGL/glext.h>
 #include<GLUT/glut.h>
 #include<stdio.h>
-
-
+#include<math.h>
 
 
 double tyme=0;
@@ -43,8 +42,8 @@ GLint mushMove=0;
 
 int coinFLAG=0;
 
-GLint x1=255,x2=255,x3=255; //Color Values to be changed for Grass and Clouds as the function is same for both
-GLint groundx=231,groundy=95,groundz=19;
+GLint x1=255,x2=255,x3=255;
+GLint groundx=230,groundy=95,groundz=19;
 GLint brickx=230,bricky=95,brickz=19;
 int next=0;
 void (*scenePointer)();
@@ -490,12 +489,121 @@ void drawMountain()
 }
 
 
+void drawBush()
+{
+        
+        glColor3ub(183,248,24);
+        glRectf(204,645,419,249); //GREEN FILL
+        glRectf(419,859,706,214);
+        glRectf(706,214,1064,537);
+        glRectf(686,788,849,537);
+        glRectf(218,322,169,609);
+        glRectf(167,360,131,572);
+        glRectf(139,389,78,509);
+        glRectf(96,428,59,501);
+        glRectf(310,259,562,216);
+        glRectf(346,214,527,179);
+        glRectf(419,184,527,143);
+        glRectf(527,216,562,179);
+        glRectf(598,232,887,180);
+        glRectf(670,186,814,143);
+        glRectf(922,216,993,180);
+        glRectf(1052,358,1101,251);
+        glRectf(1087,322,1137,287);
+        glRectf(1066,501,1101,430);
+        glRectf(1101,430,1137,537);
+        glRectf(849,609,922,537);
+        glRectf(916,572,1030,537);
+        glRectf(958,560,1028,609);
+        glRectf(1028,609,993,643);
+        glRectf(706,824,741,777);
+        glRectf(779,824,814,773);
+        glRectf(527,930,670,843);
+        glRectf(491,897,714,855);
+        glRectf(383,753,472,631);
+        glRectf(417,716,346,633);
+        glRectf(360,680,310,625);
+        glRectf(834,680,885,590);
+        glRectf(1050,430,1101,395);
+        
+        
+        glColor3ub(61, 182, 31);   //Green Shade
+        glRectf(202,393,240,358);
+        glRectf(240,358,275,322);
+        glRectf(275,322,419,287);
+        glRectf(346,358,383,287);
+        glRectf(383,287,598,251);
+        glRectf(454,249,525,216);
+        glRectf(527,322,598,277);
+        glRectf(598,322,670,287);
+        glRectf(598,358,633,322);
+        glRectf(633,322,670,249);
+        glRectf(670,249,814,285);
+        glRectf(777,214,670,255);
+        glRectf(812,320,849,287);
+        glRectf(633,393,670,358);
+        glRectf(456,680,489,716);
+        glRectf(489,716,562,753);
+        glRectf(633,788,668,753);
+        glRectf(668,753,706,718);
+        
+        glColor3ub(0, 0, 0);
+        glRectf(527,969,670,932); //BLACK BORDER
+        glRectf(489,932,527,897);
+        glRectf(419,895,491,861);
+        glRectf(383,859,419,753);
+        glRectf(348,753,383,718);
+        glRectf(312,718,348,680);
+        glRectf(204,680,310,645);
+        glRectf(167,645,204,609);
+        glRectf(131,609,167,572);
+        glRectf(96,574,131,501);
+        glRectf(59,537,98,501);
+        glRectf(23,501,60,430);
+        glRectf(60,430,96,395);
+        glRectf(96,395,131,360);
+        glRectf(131,360,167,322);
+        glRectf(167,322,204,251);
+        glRectf(204,251,310,216);
+        glRectf(310,216,346,180);
+        glRectf(346,180,419,143);
+        glRectf(419,143,527,108);
+        glRectf(525,179,562,143);
+        glRectf(560,214,598,179);
+        glRectf(598,179,670,143);
+        glRectf(670,143,816,108);
+        glRectf(814,179,885,143);
+        glRectf(885,214,922,180);
+        glRectf(922,180,995,143);
+        glRectf(993,216,1066,179);
+        glRectf(1066,251,1137,216);
+        glRectf(1101,287,1139,249);
+        glRectf(1139,320,1174,287);
+        glRectf(1139,320,1101,358);
+        glRectf(1101,358,1064,393);
+        glRectf(1174,395,1101,430);
+        glRectf(1176,395,1137,537);
+        glRectf(1137,537,1103,572);
+        glRectf(1101,501,1066,537);
+        glRectf(1066,537,1030,645);
+        glRectf(1030,645,995,682);
+        glRectf(995,609,958,645);
+        glRectf(958,574,922,609);
+        glRectf(922,609,887,680);
+        glRectf(887,680,851,788);
+        glRectf(851,788,814,824);
+        glRectf(814,824,779,861);
+        glRectf(779,788,741,824);
+        glRectf(741,824,708,895);
+        glRectf(708,895,670,932);
+        
+}
 
 
 void drawCloud()
 {
 
-        glColor3ub(x1,x2,x3);
+        glColor3ub(252,252,252);
         glRectf(204,645,419,249); //WHITE FILL
         glRectf(419,859,706,214);
         glRectf(706,214,1064,537);
@@ -529,6 +637,7 @@ void drawCloud()
         glRectf(834,680,885,590);
         glRectf(1050,430,1101,395);
 
+        
         glColor3ub(68, 189, 249);   //Blue Shade
         glRectf(202,393,240,358);
         glRectf(240,358,275,322);
@@ -822,6 +931,29 @@ void drawGroundBricks2()
         glEnd();
 }
 
+void draw3Bush()
+{
+        //3 Bushes are Merged, hence drawBush function is written thrice
+        glPushMatrix();
+        glTranslatef(500,250,0);
+        glScalef(.04,.04,0);
+        drawBush();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glTranslatef(525,250,0);
+        glScalef(.04,.04,0);
+        drawBush();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glTranslatef(550,250,0);
+        glScalef(.04,.04,0);
+        drawBush();
+        glPopMatrix();
+}
+
+
 void draw3Cloud()
 {
         //3 Clouds are Merged, hence drawCloud function is written thrice
@@ -884,7 +1016,7 @@ void drawBrick()
 
 
 
-void drawQuestionbrick()
+void drawQuestionBrick()
 {
         //Black Square
         glColor3f(0,0,0);
@@ -1210,15 +1342,6 @@ void scene1()
 
 
 
-        /*glPushMatrix();    //Coin
-        glTranslatef(250, 56, 0);
-        glScalef(0.015, 0.015, 0);
-        drawCoin();
-        glPopMatrix();*/
-
-
-
-
         glPushMatrix();//Left cloud
         glTranslatef(125,250,0);
         glScalef(.04,.04,0);
@@ -1251,17 +1374,14 @@ void scene1()
 
 
 
-        //Grass
+        //Bush
         glPushMatrix();
-        x1=183;
-        x2=248;
-        x3=24;
         glTranslatef(-340,-224,0);
-        draw3Cloud();
+        draw3Bush();
 
         glTranslatef(791,250,0);
         glScalef(.04,.04,0);
-        drawCloud();
+        drawBush();
         glPopMatrix();
 
 
@@ -1305,16 +1425,16 @@ void scene1()
         glPushMatrix();
         glTranslatef(374.5,120,0);
         glScalef(1.406,1.406,0);
-        drawQuestionbrick();
+        drawQuestionBrick();
 
         glTranslatef(32,0,0);
-        drawQuestionbrick();
+        drawQuestionBrick();
 
         glTranslatef(-108,0,0);
-        drawQuestionbrick();
+        drawQuestionBrick();
 
         glTranslatef(92,68,0);
-        drawQuestionbrick();
+        drawQuestionBrick();
         glPopMatrix();
 
 
@@ -1588,15 +1708,11 @@ void scene3()
 
 
 
-        //Grass
+        //Bush
         glPushMatrix();
-        x1=183;
-        x2=248;
-        x3=24;
-
         glTranslatef(111,27,0);
         glScalef(.04,.04,0);
-        drawCloud();
+        drawBush();
         glPopMatrix();
 
 
@@ -1646,7 +1762,7 @@ void scene3()
         glPushMatrix();//3rd brick is replaced by question mark
         glTranslatef(189,120,0);
         glScalef(1.406,1.406,0);
-        drawQuestionbrick();
+        drawQuestionBrick();
         glPopMatrix();
 
 
@@ -1767,15 +1883,11 @@ void scene4()
 
 
 
-        //Grass
+        //Bush
         glPushMatrix();
-        x1=183;
-        x2=248;
-        x3=24;
-
         glTranslatef(350,15,0);
         glScalef(.04,.04,0);
-        drawCloud();
+        drawBush();
         glPopMatrix();
 
 
