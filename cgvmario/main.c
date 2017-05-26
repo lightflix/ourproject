@@ -9,19 +9,19 @@
 
 
 /*WINDOWS HEADERS*/
-//#include<stdio.h>
-//#include<GL/gl.h>
-//#include<GL/glut.h>
-//#include<windows.h>
-//#include<math.h>
+#include<stdio.h>
+#include<GL/gl.h>
+#include<GL/glut.h>
+#include<windows.h>
+#include<math.h>
 
 /*MAC HEADERS*/
-#include<OpenGL/gl.h>
-#include<OpenGL/glu.h>
-#include<OpenGL/glext.h>
-#include<GLUT/glut.h>
-#include<stdio.h>
-#include<math.h>
+//#include<OpenGL/gl.h>
+//#include<OpenGL/glu.h>
+//#include<OpenGL/glext.h>
+//#include<GLUT/glut.h>
+//#include<stdio.h>
+//#include<math.h>
 
 
 double tyme=0;
@@ -491,7 +491,7 @@ void drawMountain()
 
 void drawBush()
 {
-        
+
         glColor3ub(183,248,24);
         glRectf(204,645,419,249); //GREEN FILL
         glRectf(419,859,706,214);
@@ -525,8 +525,8 @@ void drawBush()
         glRectf(360,680,310,625);
         glRectf(834,680,885,590);
         glRectf(1050,430,1101,395);
-        
-        
+
+
         glColor3ub(61, 182, 31);   //Green Shade
         glRectf(202,393,240,358);
         glRectf(240,358,275,322);
@@ -546,7 +546,7 @@ void drawBush()
         glRectf(489,716,562,753);
         glRectf(633,788,668,753);
         glRectf(668,753,706,718);
-        
+
         glColor3ub(0, 0, 0);
         glRectf(527,969,670,932); //BLACK BORDER
         glRectf(489,932,527,897);
@@ -596,7 +596,7 @@ void drawBush()
         glRectf(779,788,741,824);
         glRectf(741,824,708,895);
         glRectf(708,895,670,932);
-        
+
 }
 
 
@@ -637,7 +637,7 @@ void drawCloud()
         glRectf(834,680,885,590);
         glRectf(1050,430,1101,395);
 
-        
+
         glColor3ub(68, 189, 249);   //Blue Shade
         glRectf(202,393,240,358);
         glRectf(240,358,275,322);
@@ -833,7 +833,7 @@ void drawGroundBricks2()
         glVertex2f(20,20);
         glVertex2f(0,20);
         glEnd();
-        
+
         glLineWidth(2.4);
         //Black Shade on Bottom and Right edge
         glColor3f(0,0,0);
@@ -842,7 +842,7 @@ void drawGroundBricks2()
         glVertex2f(20,0);
         glVertex2f(20,20);
         glEnd();
-        
+
         //White Shade  on Top and Left edge
         glColor3ub(166,246,245);
         glBegin(GL_LINE_STRIP);
@@ -850,7 +850,7 @@ void drawGroundBricks2()
         glVertex2f(0,20);
         glVertex2f(20,20);
         glEnd();
-        
+
         //Interior Black Shade lines
         glColor3f(0,0,0);
         GLfloat b[50]={3,277,
@@ -872,11 +872,11 @@ void drawGroundBricks2()
                 250,146,
                 250,0
         };
-        
+
         GLfloat line[18][2];
         GLint i,j;
         GLint k=0;
-        
+
         for(i=0;i<18;i++)
                 for(j=0;j<2;j++)
                 {
@@ -885,15 +885,15 @@ void drawGroundBricks2()
                         line[i][j]=( b[k] * (.0476) );  //Scaled from size 420 to 20. Hence the scaling factor
                         k++;
                 }
-        
+
         glLineWidth(2);
         glBegin(GL_LINE_STRIP); //Draw the lines
         for(i=0;i<18;i++)
                 glVertex2fv(line[i]);
         glEnd();
-        
-        
-        
+
+
+
         //Interior white shading Line
         glColor3ub(166,246,245);
         GLfloat b1[50]={34,303,
@@ -915,7 +915,7 @@ void drawGroundBricks2()
         //Concept is same as the one used in White shading Line
         GLfloat line1[15][2];
         k=0;
-        
+
         for(i=0;i<15;i++)
                 for(j=0;j<2;j++)
                 {
@@ -939,13 +939,13 @@ void draw3Bush()
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(525,250,0);
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(550,250,0);
         glScalef(.04,.04,0);
@@ -1146,7 +1146,7 @@ void drawBattlements()
 {
         glTranslatef(-256, -34, 0);
         glScalef(0.38, 0.38, 0);
-        
+
         glColor3ub(230, 95, 19);
         glRectf(93,183,135,95);  //BATTLEMENTS 1 FILL
         glRectf(230,181,339,93);
@@ -1154,7 +1154,7 @@ void drawBattlements()
         glRectf(634,181,740,91);
         glRectf(833,183,940,91);
         glRectf(1037,183,1075,97);
-        
+
         glPushMatrix();
         glTranslatef(0, -30, 0); //BATTLEMENTS 2 FILL
         glScalef(1, 1.03, 0);
@@ -1163,7 +1163,7 @@ void drawBattlements()
         glRectf(634,582,736,500);
         glRectf(833,584,888,500);
         glPopMatrix();
-        
+
         glLineWidth(1.5);
         glBegin(GL_LINES);
                 glColor3ub(0, 0, 0);
@@ -1225,7 +1225,7 @@ void drawBattlements()
                 glVertex2f(1033,181);
                 glVertex2f(1086,181);
         glEnd();
-        
+
         glPushMatrix();
         glTranslatef(0, -14, 0);
         glBegin(GL_LINES);
@@ -1241,7 +1241,7 @@ void drawBattlements()
                 glVertex2f(890,496);
         glEnd();
         glPopMatrix();
-        
+
         glTranslatef(0, -8, 0);
         glBegin(GL_LINES);
                 glLineWidth(1.26);
@@ -1277,7 +1277,7 @@ void drawBattlements()
 
 void drawCastle()
 {
-        
+
                 GLint i,j;
         for(i=0;i<3;i++)        //Ground Floor
         {
@@ -1311,21 +1311,9 @@ void drawCastle()
 
         glTranslatef(110,0,0);
         glRectf(0,0,37.5,73);
-        
+
         drawBattlements(); //Battlements
-        
-}
 
-
-
-
-void marker()
-{
-        glColor3f(1,1,1);
-        glBegin(GL_LINE_STRIP);
-        glVertex2f(0,0);
-        glVertex2f(21,0);
-        glEnd();
 }
 
 
@@ -2057,6 +2045,10 @@ void resetScene4()
 }
 
 
+void myTimer2();
+void myTimer3();
+void myTimer4();
+
 
 
 //Animate Scene1
@@ -2147,6 +2139,14 @@ void myTimer1(int n)
         if(goombaX<=0)      //When he hits the leftmost part of the screen, set flag to move in the Right direction
             goombaRight=1;
 
+        if(tyme==6500)
+        {
+            next=1;
+            resetScene2();
+            scenePointer=&scene2;
+            glutTimerFunc(10,myTimer2,0);
+        }
+
 
 
         glutPostRedisplay();
@@ -2233,6 +2233,13 @@ void myTimer2()
         if(tyme==4000)                  //Enable Horizontal movement of Mario
             marioUp=0;
 
+        if(tyme==6000)
+        {
+            next=2;
+            resetScene3();
+            scenePointer=&scene3;
+            glutTimerFunc(10,myTimer3,0);
+        }
 
 
         glutPostRedisplay();
@@ -2348,7 +2355,13 @@ void myTimer3()
         if(goomba2X<=73)      //When he hits the leftmost part of the screen, set flag to move in the Right direction
             goomba2Right=1;
 
-
+        if(tyme==6000)
+        {
+            next=3;
+            resetScene4();
+            scenePointer=&scene4;
+            glutTimerFunc(10,myTimer4,0);
+        }
 
 
         glutPostRedisplay();
@@ -2511,25 +2524,6 @@ void currentDisplay()
 
 
 
-//      Windows:Ctrl+Shift+C to comment and Ctrl+Shift+X to uncomment
-/*
-void windowResized(int w,int h)
-{
-        glViewport(0,0,w,h);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-
-        if(w<=h)
-            gluOrtho2D(0,600,0,400*(GLfloat)(h/w));
-        else
-            gluOrtho2D(0,600*(GLfloat)(w/h),0,400);
-        glMatrixMode(GL_MODELVIEW);
-
-}*/
-
-
-
-
 int main(int argc,char **argv)
 {
         glutInit(&argc,argv);            //Initialize graphics libraries
@@ -2547,7 +2541,6 @@ int main(int argc,char **argv)
         glutTimerFunc(500,myTimer3,0);
         glutTimerFunc(500,myTimer4,0);
 
-        //glutReshapeFunc(windowResized);
         glutKeyboardFunc(myKey);
         glutMainLoop();             //mainloop handles all the glut events(functions with the prefix "glut"). Display function is only called once, not iteratively.
         return 0;
