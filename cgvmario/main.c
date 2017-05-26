@@ -9,19 +9,19 @@
 
 
 /*WINDOWS HEADERS*/
-#include<stdio.h>
-#include<GL/gl.h>
-#include<GL/glut.h>
-#include<windows.h>
-#include<math.h>
+//#include<stdio.h>
+//#include<GL/gl.h>
+//#include<GL/glut.h>
+//#include<windows.h>
+//#include<math.h>
 
 /*MAC HEADERS*/
-//#include<OpenGL/gl.h>
-//#include<OpenGL/glu.h>
-//#include<OpenGL/glext.h>
-//#include<GLUT/glut.h>
-//#include<stdio.h>
-//#include<math.h>
+#include<OpenGL/gl.h>
+#include<OpenGL/glu.h>
+#include<OpenGL/glext.h>
+#include<GLUT/glut.h>
+#include<stdio.h>
+#include<math.h>
 
 
 double tyme=0;
@@ -742,7 +742,7 @@ void drawGroundBricks()
         glEnd();
 
         //Interior Black Shade lines
-        glColor3f(0,0,0);
+        glColor3ub(30,30,30);
         GLfloat b[50]={3,277,
                 9,277,
                 17,277,
@@ -852,7 +852,7 @@ void drawGroundBricks2()
         glEnd();
 
         //Interior Black Shade lines
-        glColor3f(0,0,0);
+        glColor3ub(30,30,30);
         GLfloat b[50]={3,277,
                 9,277,
                 17,277,
