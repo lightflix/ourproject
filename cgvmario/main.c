@@ -4,27 +4,27 @@
 //  sample
 //
 //  Created by Lloyd Fernandes and Calvin Menezes
-//  Copyright � 2017. All rights reserved.
+//  Copyright ? 2017. All rights reserved.
 //
 
 
 /*WINDOWS HEADERS*/
-//#include<stdio.h>
-//#include<GL/gl.h>
-//#include<GL/glut.h>
-//#include<windows.h>
-//#include<math.h>
-//#include<time.h>
+#include<stdio.h>
+#include<GL/gl.h>
+#include<GL/glut.h>
+#include<windows.h>
+#include<math.h>
+#include<time.h>
 
 /*MAC HEADERS*/
-#include<OpenGL/gl.h>
-#include<OpenGL/glu.h>
-#include<OpenGL/glext.h>
-#include<GLUT/glut.h>
-#include<stdio.h>
-#include<math.h>
-#include<stdlib.h>
-#include<time.h>
+//#include<OpenGL/gl.h>
+//#include<OpenGL/glu.h>
+//#include<OpenGL/glext.h>
+//#include<GLUT/glut.h>
+//#include<stdio.h>
+//#include<math.h>
+//#include<stdlib.h>
+//#include<time.h>
 
 
 double tyme=0;
@@ -48,7 +48,7 @@ int coinFLAG=0;
 GLint x1=255,x2=255,x3=255;
 GLint groundx=230,groundy=95,groundz=19;
 GLint brickx=230,bricky=95,brickz=19;
-int next=-1;
+int next=-2;
 void (*scenePointer)();
 GLfloat flagMove=274;
 
@@ -71,7 +71,7 @@ void drawCoin()
         glRectf(137,897,201,833);
         glRectf(73,833,135,707);
         glRectf(11,706,73,324);
-        
+
         glColor3ub(255, 255, 255);
         glRectf(262,260,326,769); //WHITE REFLECTION
         glRectf(73,324,137,707);
@@ -80,14 +80,14 @@ void drawCoin()
         glRectf(264,897,264,897);
         glRectf(328,898,456,961);
         glRectf(326,770,457,834);
-        
+
         glColor3ub(173, 127, 49);
         glRectf(265,133,519,70);  //BROWN SHADE
         glRectf(520,197,647,133);
         glRectf(584,258,646,196);
         glRectf(647,771,710,260);
         glRectf(584,898,647,771);
-        
+
         glColor3ub(242, 186, 55);
         glRectf(137,769,199,133); //GOLDEN SHADE
         glRectf(137,196,519,133);
@@ -98,7 +98,7 @@ void drawCoin()
         glRectf(201,833,264,771);
         glRectf(329,387,455,261);
         glRectf(392,769,455,324);
-        
+
         glColor3ub(247, 232, 51);
         glRectf(201,770,265,197); //BRIGHT YELLOW
         glRectf(262,258,328,196);
@@ -107,7 +107,7 @@ void drawCoin()
         glRectf(456,834,520,771);
         glRectf(520,771,583,260);
         glRectf(455,260,520,197);
-        
+
 }
 
 
@@ -118,11 +118,11 @@ void drawPipe()
         glColor3ub(0, 0, 0);
         glRectf(13,821,997,401); //PIPE SHAPE
         glRectf(70,406,941,8);
-        
+
         glColor3ub(130, 206, 44);
         glRectf(44,793,966,429); //LIGHT GREEN FILL
         glRectf(98,371,911,9);
-        
+
         glColor3ub(23, 166, 27);
         glRectf(182,9,268,371); //PIPE TEXTURE
         glRectf(380,8,436,370);
@@ -149,11 +149,11 @@ void drawGoomba()
         glRectf(374,88,574,8);
         glRectf(413,128,613,48);
         glRectf(454,167,574,128);
-        
+
         glColor3ub(216, 186, 127);
         glRectf(175,247,492,130); //BODY
         glRectf(255,128,413,90);
-        
+
         glColor3ub(230, 94, 23);
         glRectf(15,247,653,366); //FACE
         glRectf(55,208,214,446);
@@ -169,19 +169,19 @@ void drawGoomba()
         glRectf(495,487,573,407);
         glRectf(574,446,613,406);
         glRectf(155,507,526,263);
-        
+
         glColor3ub(223, 223, 223);
         glRectf(174,287,294,366); //EYES
         glRectf(175,367,240,446);
         glRectf(375,288,493,367);
         glRectf(423,367,493,446);
-        
+
         glColor3ub(0, 0, 0);
         glRectf(134,487,214,447); //EYEBROWS
         glRectf(214,447,254,327);
         glRectf(533,486,454,446);
         glRectf(454,446,413,327);
-        
+
 }
 
 
@@ -203,17 +203,17 @@ void drawMushroom()
         for(i=0;i<4;i++)
                 glVertex2fv(ptmsh[i]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         for(i=4;i<8;i++)
                 glVertex2fv(ptmsh[i]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         for(i=8;i<12;i++)
                 glVertex2fv(ptmsh[i]);
         glEnd();
-        
+
         glRectf(105,186,144,104);
         glRectf(66,222,183,182);
         glRectf(183,258,492,221);
@@ -230,7 +230,7 @@ void drawMushroom()
         glRectf(144,607,221,569);
         glRectf(454,606,532,569);
         glRectf(221,645,454,606);
-        
+
         glColor3ub(226, 32, 44); //RED FILLING
         glRectf(68,258,182,221);
         glRectf(494,258,609,221);
@@ -238,7 +238,7 @@ void drawMushroom()
         glRectf(106,530,571,444);
         glRectf(145,569,532,526);
         glRectf(223,607,454,559);
-        
+
         glColor3ub(255, 255, 255); //WHITE FACE
         glRectf(183,143,493,66);
         glRectf(146,182,222,104);
@@ -246,7 +246,7 @@ void drawMushroom()
         glRectf(301,220,377,105);
         glRectf(416,218,492,104);
         glRectf(493,182,531,105);
-        
+
         glColor3ub(255, 255, 255); //WHITE SPOTS
         glRectf(68,375,106,221);
         glRectf(95,337,144,260);
@@ -271,7 +271,7 @@ void drawMario()
 {
         //Values used for making the mario, array "PTM" means "Points Mario"
         GLfloat ptm[118][2]={{64,377},{64,401},{88,401},{88,424},{232,424},{232,400},{305,401},{304,377},{65,376},{64,280},{88,280},{88,257},{280,257},{281,279},{304,280},{305,304},{328,305},{329,329},{305,329},{305,352},{257,353},{257,376},{64,377},{64,353},{88,352},{89,304},{136,305},{137,329},{112,330},{112,353},{136,352},{137,377},{40,353},{40,281},{88,280},{89,305},{64,304},{64,352},{208,377},{208,329},{232,329},{233,377},{207,281},{208,305},{232,305},{232,329},{256,330},{257,305},{304,305},{304,280},{64,257},{232,257},{232,232},{280,233},{280,208},{304,209},{305,185},{256,185},{256,161},{65,161},{64,185},{16,185},{16,209},{40,209},{40,233},{64,233},{112,256},{113,184},{88,185},{89,137},{64,137},{65,89},{136,89},{137,113},{184,113},{184,89},{256,89},{257,137},{233,137},{233,185},{208,185},{208,232},{184,233},{184,209},{136,209},{137,257},{112,184},{136,161},{184,185},{208,161},{16,185},{16,113},{64,113},{64,137},{88,137},{88,161},{64,161},{64,185},{233,161},{256,160},{256,185},{304,185},{304,113},{257,112},{256,137},{233,137},{16,41},{113,41},{112,89},{40,89},{40,65},{16,65},{208,41},{208,89},{281,89},{281,65},{305,65},{305,41}};
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(181,50,32); //THE HAT
         glVertex2fv(ptm[0]);
@@ -283,7 +283,7 @@ void drawMario()
         glVertex2fv(ptm[6]);
         glVertex2fv(ptm[7]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(234,159,34); //COMPLEXION FACE
         glVertex2fv(ptm[8]);
@@ -301,7 +301,7 @@ void drawMario()
         glVertex2fv(ptm[20]);
         glVertex2fv(ptm[21]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(107,109,0); //SIDE BURNS
         glVertex2fv(ptm[22]);
@@ -315,7 +315,7 @@ void drawMario()
         glVertex2fv(ptm[30]);
         glVertex2fv(ptm[31]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(107,109,0); //HAIR BEHIND
         glVertex2fv(ptm[32]);
@@ -325,7 +325,7 @@ void drawMario()
         glVertex2fv(ptm[36]);
         glVertex2fv(ptm[37]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(107,109,0); //EYE
         glVertex2fv(ptm[38]);
@@ -333,7 +333,7 @@ void drawMario()
         glVertex2fv(ptm[40]);
         glVertex2fv(ptm[41]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(107,109,0); //STACHE
         glVertex2fv(ptm[42]);
@@ -345,7 +345,7 @@ void drawMario()
         glVertex2fv(ptm[48]);
         glVertex2fv(ptm[49]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(107,109,0); //SHIRT
         glVertex2fv(ptm[50]);
@@ -365,7 +365,7 @@ void drawMario()
         glVertex2fv(ptm[64]);
         glVertex2fv(ptm[65]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(234,159,34); //HAND 1
         glVertex2fv(ptm[90]);
@@ -377,7 +377,7 @@ void drawMario()
         glVertex2fv(ptm[96]);
         glVertex2fv(ptm[97]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(234,159,34); //HAND 2
         glVertex2fv(ptm[98]);
@@ -389,7 +389,7 @@ void drawMario()
         glVertex2fv(ptm[104]);
         glVertex2fv(ptm[105]);
         glEnd();
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(181,50,32); //RED STRAPS
         glVertex2fv(ptm[66]);
@@ -413,11 +413,11 @@ void drawMario()
         glVertex2fv(ptm[84]);
         glVertex2fv(ptm[85]);
         glEnd();
-        
+
         glColor3ub(234,159,34); //BUTTONS
         glRectf(112,184,136,161);
         glRectf(184,185,208,161);
-        
+
         glBegin(GL_POLYGON);
         glColor3ub(107,109,0); //LEFT SHOE
         glVertex2fv(ptm[106]);
@@ -428,7 +428,7 @@ void drawMario()
         glVertex2fv(ptm[111]);
         glEnd();
         glBegin(GL_POLYGON);
-        
+
         glColor3ub(107,109,0); //RIGHT SHOE
         glVertex2fv(ptm[112]);
         glVertex2fv(ptm[113]);
@@ -456,33 +456,33 @@ void drawMountain()
                 149,20,
                 159,21,
                 233,94};
-        
+
         GLfloat mnt[12][2];
         GLint i,j;
         GLint k=0;
-        
+
         for(i=0;i<12;i++)
                 for(j=0;j<2;j++)
                 {
                         if(k%2==1)  //Odd indices of array 'c' are the Y coordinates which have to be correctly represented in
                                 //the graphical system we use
                                 c[k]=96-c[k];
-                        
+
                         mnt[i][j]=c[k]; //Store as Vertex Pair
                         k++;
                 }
-        
+
         glColor3ub(0,171,0);       //Draw the Mountain with color as green
         glBegin(GL_POLYGON);
         for(i=0;i<12;i++)
                 glVertex2fv(mnt[i]);
-        
+
         glEnd();
-        
+
         glColor3f(0,0,0);
         glRectf(127,35,136,55);
         glRectf(141,50,156,70);
-        
+
         glLineWidth(1.5);
         glBegin(GL_LINE_STRIP);
         for(i=0;i<12;i++)
@@ -493,7 +493,7 @@ void drawMountain()
 
 void drawBush()
 {
-        
+
         glColor3ub(183,248,24);
         glRectf(204,645,419,249); //GREEN FILL
         glRectf(419,859,706,214);
@@ -527,8 +527,8 @@ void drawBush()
         glRectf(360,680,310,625);
         glRectf(834,680,885,590);
         glRectf(1050,430,1101,395);
-        
-        
+
+
         glColor3ub(61, 182, 31);   //Green Shade
         glRectf(202,393,240,358);
         glRectf(240,358,275,322);
@@ -548,7 +548,7 @@ void drawBush()
         glRectf(489,716,562,753);
         glRectf(633,788,668,753);
         glRectf(668,753,706,718);
-        
+
         glColor3ub(0, 0, 0);
         glRectf(527,969,670,932); //BLACK BORDER
         glRectf(489,932,527,897);
@@ -598,13 +598,13 @@ void drawBush()
         glRectf(779,788,741,824);
         glRectf(741,824,708,895);
         glRectf(708,895,670,932);
-        
+
 }
 
 
 void drawCloud()
 {
-        
+
         glColor3ub(252,252,252);
         glRectf(204,645,419,249); //WHITE FILL
         glRectf(419,859,706,214);
@@ -638,8 +638,8 @@ void drawCloud()
         glRectf(360,680,310,625);
         glRectf(834,680,885,590);
         glRectf(1050,430,1101,395);
-        
-        
+
+
         glColor3ub(68, 189, 249);   //Blue Shade
         glRectf(202,393,240,358);
         glRectf(240,358,275,322);
@@ -659,7 +659,7 @@ void drawCloud()
         glRectf(489,716,562,753);
         glRectf(633,788,668,753);
         glRectf(668,753,706,718);
-        
+
         glColor3ub(0, 0, 0);
         glRectf(527,969,670,932); //BLACK BORDER
         glRectf(489,932,527,897);
@@ -709,7 +709,7 @@ void drawCloud()
         glRectf(779,788,741,824);
         glRectf(741,824,708,895);
         glRectf(708,895,670,932);
-        
+
 }
 
 
@@ -725,7 +725,7 @@ void drawGroundBricks()
         glVertex2f(20,20);
         glVertex2f(0,20);
         glEnd();
-        
+
         glLineWidth(2.4);
         //Black Shade on Bottom and Right edge
         glColor3f(0,0,0);
@@ -734,7 +734,7 @@ void drawGroundBricks()
         glVertex2f(20,0);
         glVertex2f(20,20);
         glEnd();
-        
+
         //White Shade  on Top and Left edge
         glColor3ub(251,188,177);
         glBegin(GL_LINE_STRIP);
@@ -742,7 +742,7 @@ void drawGroundBricks()
         glVertex2f(0,20);
         glVertex2f(20,20);
         glEnd();
-        
+
         //Interior Black Shade lines
         glColor3f(0,0,0);
         GLfloat b[50]={3,277,
@@ -764,11 +764,11 @@ void drawGroundBricks()
                 250,146,
                 250,0
         };
-        
+
         GLfloat line[18][2];
         GLint i,j;
         GLint k=0;
-        
+
         for(i=0;i<18;i++)
                 for(j=0;j<2;j++)
                 {
@@ -777,15 +777,15 @@ void drawGroundBricks()
                         line[i][j]=( b[k] * (.0476) );  //Scaled from size 420 to 20. Hence the scaling factor
                         k++;
                 }
-        
+
         glLineWidth(2);
         glBegin(GL_LINE_STRIP); //Draw the lines
         for(i=0;i<18;i++)
                 glVertex2fv(line[i]);
         glEnd();
-        
-        
-        
+
+
+
         //Interior white shading Line
         glColor3ub(251,188,177);
         GLfloat b1[50]={34,303,
@@ -807,7 +807,7 @@ void drawGroundBricks()
         //Concept is same as the one used in White shading Line
         GLfloat line1[15][2];
         k=0;
-        
+
         for(i=0;i<15;i++)
                 for(j=0;j<2;j++)
                 {
@@ -835,7 +835,7 @@ void drawGroundBricks2()
         glVertex2f(20,20);
         glVertex2f(0,20);
         glEnd();
-        
+
         glLineWidth(2.4);
         //Black Shade on Bottom and Right edge
         glColor3f(0,0,0);
@@ -844,7 +844,7 @@ void drawGroundBricks2()
         glVertex2f(20,0);
         glVertex2f(20,20);
         glEnd();
-        
+
         //White Shade  on Top and Left edge
         glColor3ub(166,246,245);
         glBegin(GL_LINE_STRIP);
@@ -852,7 +852,7 @@ void drawGroundBricks2()
         glVertex2f(0,20);
         glVertex2f(20,20);
         glEnd();
-        
+
         //Interior Black Shade lines
         glColor3f(0,0,0);
         GLfloat b[50]={3,277,
@@ -874,11 +874,11 @@ void drawGroundBricks2()
                 250,146,
                 250,0
         };
-        
+
         GLfloat line[18][2];
         GLint i,j;
         GLint k=0;
-        
+
         for(i=0;i<18;i++)
                 for(j=0;j<2;j++)
                 {
@@ -887,15 +887,15 @@ void drawGroundBricks2()
                         line[i][j]=( b[k] * (.0476) );  //Scaled from size 420 to 20. Hence the scaling factor
                         k++;
                 }
-        
+
         glLineWidth(2);
         glBegin(GL_LINE_STRIP); //Draw the lines
         for(i=0;i<18;i++)
                 glVertex2fv(line[i]);
         glEnd();
-        
-        
-        
+
+
+
         //Interior white shading Line
         glColor3ub(166,246,245);
         GLfloat b1[50]={34,303,
@@ -917,7 +917,7 @@ void drawGroundBricks2()
         //Concept is same as the one used in White shading Line
         GLfloat line1[15][2];
         k=0;
-        
+
         for(i=0;i<15;i++)
                 for(j=0;j<2;j++)
                 {
@@ -941,13 +941,13 @@ void draw3Bush()
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(525,250,0);
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(550,250,0);
         glScalef(.04,.04,0);
@@ -964,13 +964,13 @@ void draw3Cloud()
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(525,250,0);
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(550,250,0);
         glScalef(.04,.04,0);
@@ -984,11 +984,11 @@ void draw3Cloud()
 void drawBrick()
 {
         GLint i;
-        
+
         //Black Rectangle
         glColor3f(0,0,0);
         glRectf(0,0,75,75);
-        
+
         //Top Shade
         glColor3ub(238,210,190);
         glLineWidth(2);
@@ -996,9 +996,9 @@ void drawBrick()
         glVertex2f(0,74);
         glVertex2f(75,74);
         glEnd();
-        
+
         glColor3ub(brickx,bricky,brickz);
-        
+
         //5 Inner Rectangles(bricks)
         glPushMatrix();
         for(i=0;i<2;i++)
@@ -1008,11 +1008,11 @@ void drawBrick()
                 glRectf(57,4,76,18);
                 glRectf(1,22,33,36);
                 glRectf(38,22,71,36);
-                
+
                 glTranslatef(0,36,0);
         }
         glPopMatrix();
-        
+
 }
 
 
@@ -1023,30 +1023,30 @@ void drawQuestionBrick()
         //Black Square
         glColor3f(0,0,0);
         glRectf(0,0,16,16);
-        
+
         //Left and Top Shade
         glColor3ub(211,98,46);
         glRectf(0,1,1,15);
         glRectf(1,15,15,16);
-        
+
         //Inner Background Square
         glColor3ub(253,163,70);
         glRectf(1,1,15,15);
-        
+
         //4 Dots at corners
         glColor3f(0,0,0);
         glRectf(2,2,3,3);
         glRectf(13,2,14,3);
         glRectf(13,13,14,14);
         glRectf(2,13,3,14);
-        
+
         //Question Mark Shadow
         glRectf(8,2,10,4);
         glRectf(8,5,10,8);
         glRectf(10,7,12,11);
         glRectf(5,8,7,12);
         glRectf(7,11,9,12);
-        
+
         //Orange Question Mark
         glColor3ub(239,89,30);
         glRectf(7,3,9,5);
@@ -1055,7 +1055,7 @@ void drawQuestionBrick()
         glRectf(9,9,11,12);
         glRectf(5,12,10,13);
         glRectf(4,9,6,12);
-        
+
 }
 
 
@@ -1065,23 +1065,23 @@ void drawStep()
 {
         glColor3f(0,0,0);   //Black Square
         glRectf(0,0,16,16);
-        
+
         glColor3ub(252,188,176);    //Peach Triangle
         glBegin(GL_POLYGON);
         glVertex2f(0,0);
         glVertex2f(0,16);
         glVertex2f(16,16);
         glEnd();
-        
+
         glColor3ub(200,76,12);
-        
+
         glBegin(GL_LINE_LOOP);      //Diagonal
         glVertex2f(0,15.9);
         glVertex2f(15.9,.2);
         glEnd();
-        
+
         glRectf(4,4,12,12);         //Central Square
-        
+
 }
 
 
@@ -1090,19 +1090,19 @@ void drawStep()
 void drawFlag()
 {
         glRotatef(180, 1, 0, 0); //because I forgot to flip image before plotting vertices
-        
+
         glColor3ub(255, 255, 255);
         glBegin(GL_POLYGON);        //FLAG
         glVertex2f(647,334);
         glVertex2f(647,675);
         glVertex2f(219,334);
         glEnd();
-        
+
         glColor3ub(26, 146, 22);
         glRectf(436,483,621,377); //FLAG DESIGN - GREEN FILL
         glRectf(488,506,565,357);
         glRectf(462,388,595,357);
-        
+
         glColor3ub(255, 255, 255);
         glRectf(462,442,488,399); //FLAG DESIGN FACE
         glRectf(488,421,514,378);
@@ -1117,10 +1117,10 @@ void drawFlag()
 void drawFlagpole()
 {
         glRotatef(180, 1, 0, 0); //because I forgot to flip image before plotting vertices
-        
+
         glColor3ub(185, 252, 58);
         glRectf(621,314,675,3200);  //POLE (modify last parameter to adjust pole length)
-        
+
         glColor3ub(0, 0, 0);
         glRectf(595,163,700,144); //POLE CIRCLE BLACK BORDER
         glRectf(703,183,726,165);
@@ -1130,17 +1130,17 @@ void drawFlagpole()
         glRectf(570,291,593,272);
         glRectf(540,270,567,186);
         glRectf(567,186,595,163);
-        
+
         glColor3ub(26, 146, 22);
         glRectf(568,270,726,188); //GREEN FILL TOP
         glRectf(595,186,700,165);
         glRectf(596,293,700,259);
-        
+
         glColor3ub(138, 214, 41);
         glRectf(595,186,621,165); //LIGHT GREEN SHINE POLE TOP
         glRectf(568,229,595,186);
-        
-        
+
+
 }
 
 
@@ -1148,7 +1148,7 @@ void drawBattlements()
 {
         glTranslatef(-256, -34, 0);
         glScalef(0.38, 0.38, 0);
-        
+
         glColor3ub(230, 95, 19);
         glRectf(93,183,135,95);  //BATTLEMENTS 1 FILL
         glRectf(230,181,339,93);
@@ -1156,7 +1156,7 @@ void drawBattlements()
         glRectf(634,181,740,91);
         glRectf(833,183,940,91);
         glRectf(1037,183,1075,97);
-        
+
         glPushMatrix();
         glTranslatef(0, -30, 0); //BATTLEMENTS 2 FILL
         glScalef(1, 1.03, 0);
@@ -1165,7 +1165,7 @@ void drawBattlements()
         glRectf(634,582,736,500);
         glRectf(833,584,888,500);
         glPopMatrix();
-        
+
         glLineWidth(1.5);
         glBegin(GL_LINES);
         glColor3ub(0, 0, 0);
@@ -1181,7 +1181,7 @@ void drawBattlements()
         glVertex2f(934,93);
         glVertex2f(1033,93);
         glVertex2f(1081,93);
-        
+
         glColor3ub(244, 189, 176);
         glLineWidth(1.26);
         glVertex2f(95,181);  //BORDER OF BATTLEMENT 1
@@ -1227,7 +1227,7 @@ void drawBattlements()
         glVertex2f(1033,181);
         glVertex2f(1086,181);
         glEnd();
-        
+
         glPushMatrix();
         glTranslatef(0, -14, 0);
         glBegin(GL_LINES);
@@ -1243,7 +1243,7 @@ void drawBattlements()
         glVertex2f(890,496);
         glEnd();
         glPopMatrix();
-        
+
         glTranslatef(0, -8, 0);
         glBegin(GL_LINES);
         glLineWidth(1.26);
@@ -1279,11 +1279,11 @@ void drawBattlements()
 
 void drawCastle()
 {
-        
+
         GLint i,j;
         for(i=0;i<3;i++)        //Ground Floor
         {
-                
+
                 for(j=0;j<5;j++)
                 {
                         drawBrick();
@@ -1291,11 +1291,11 @@ void drawCastle()
                 }
                 glTranslatef(-75*5,73,0);
         }
-        
+
         glTranslatef(75,0,0);   //First Floor
         for(i=0;i<2;i++)
         {
-                
+
                 for(j=0;j<3;j++)
                 {
                         drawBrick();
@@ -1303,31 +1303,31 @@ void drawCastle()
                 }
                 glTranslatef(-75*3,73,0);
         }
-        
+
         glColor3f(0,0,0);       //Door
         glTranslatef(75,-5*73,0);
         glRectf(0,0,75,146);
-        
+
         glTranslatef(-38,73*3,0);
         glRectf(0,0,37.5,73);
-        
+
         glTranslatef(110,0,0);
         glRectf(0,0,37.5,73);
-        
+
         drawBattlements(); //Battlements
-        
+
 }
 void title()
 {
         int l1,r2,mix=45; float chg=5.51;
         glClearColor(1,1,1,1);
         glClear(GL_COLOR_BUFFER_BIT);
-        
+
         glLoadIdentity();
         gluOrtho2D(-10,86,-10,50);
         srand(time(NULL));  //Seed
-   
-       
+
+
         for(l1=0;l1<800;l1++)  //BACKGROUND
         {
                 do
@@ -1338,7 +1338,7 @@ void title()
                 glRectf(-40,-20+chg,200,chg*chg);
                 chg=chg*1.0177;
         }
-        
+
         char a[]="DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING";
         char b[]="ST JOSEPH ENGINEERING COLLEGE, MANGALURU";
         char c[]="COMPUTER GRAPHICS PROJECT";
@@ -1350,9 +1350,9 @@ void title()
         char k[]="4SO14CS020";
         char l[]="SEM 6 CS-A";
         int i;
-        
+
         glColor3ub(255,255,255);
-        
+
         glLineWidth(1);
         glPushMatrix(); //DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
         glTranslatef(5,36.3,0);
@@ -1360,7 +1360,7 @@ void title()
         for(i=0;i<strlen(a);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,a[i]);
         glPopMatrix();
-        
+
         glLineWidth(3.25);
         glPushMatrix(); //ST JOSEPH ENGINEERING COLLEGE, MANGALURU"
         glTranslatef(2.8,40,0);
@@ -1368,7 +1368,7 @@ void title()
         for(i=0;i<strlen(b);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,b[i]);
         glPopMatrix();
-        
+
         glLineWidth(1.3);
         glPushMatrix(); //COMPUTER GRAPHICS PROJECT
         glTranslatef(17,30,0);
@@ -1376,9 +1376,9 @@ void title()
         for(i=0;i<strlen(c);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,c[i]);
         glPopMatrix();
-        
-        
-        
+
+
+
         glLineWidth(3.25);
         glColor3f(1,1,1);
         glPushMatrix(); //Super Mario Bros (Gameplay)
@@ -1387,24 +1387,24 @@ void title()
         for(i=0;i<strlen(d);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,d[i]);
         glPopMatrix();
-        
-        
+
+
         glPushMatrix(); //Lloyd Fernandes
         glTranslatef(0,5.5,0);
         glScalef(0.02,0.02,0);
         for(i=0;i<strlen(f);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,f[i]);
         glPopMatrix();
-        
-        
+
+
         glPushMatrix(); //Calvin Menezes
         glTranslatef(55,5.5,0);
         glScalef(0.02,0.02,0);
         for(i=0;i<strlen(g);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,g[i]);
         glPopMatrix();
-        
-        
+
+
         glLineWidth(3.30);
         glColor3f(1,1,1);
         glPushMatrix(); //CREATED BY:
@@ -1413,7 +1413,7 @@ void title()
         for(i=0;i<strlen(e);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,e[i]);
         glPopMatrix();
-        
+
         glLineWidth(2.25);
         glPushMatrix(); //4so14cs044
         glTranslatef(2,2,0);
@@ -1421,31 +1421,138 @@ void title()
         for(i=0;i<strlen(h);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,h[i]);
         glPopMatrix();
-        
-        
+
+
         glPushMatrix(); //4so14cs020
         glTranslatef(56,2,0);
         glScalef(0.02,0.02,0);
         for(i=0;i<strlen(k);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,k[i]);
         glPopMatrix();
-        
-        
+
+
         glPushMatrix(); //VI SEM CS-A
         glTranslatef(1,-1.5,0);
         glScalef(0.02,0.02,0);
         for(i=0;i<strlen(l);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,l[i]);
         glPopMatrix();
-        
-        
+
+
         glPushMatrix(); //VI SEM CS-A
         glTranslatef(55.5,-1.5,0);
         glScalef(0.02,0.02,0);
         for(i=0;i<strlen(l);i++)
                 glutStrokeCharacter(GLUT_STROKE_ROMAN,l[i]);
         glPopMatrix();
-        
+
+        glFlush();
+}
+
+
+
+
+void start()
+{
+        glClearColor(0,0,0,1);
+        glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
+        glLoadIdentity();
+        gluOrtho2D(80,520,0,400); //The Scale for the Window
+
+        int i;
+        char x[]="x";
+        char three[]="3";
+        char world[]="WORLD 1-1";
+        char mario[]="MARIO";
+        char times[]="TIME";
+        char six0[]="000000";
+        char x0[]="x00";
+
+        //Display Mario
+        glPushMatrix();
+        glTranslatef(265,200,0);
+        glScalef(.05,.06,0);
+        drawMario();
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //x
+        glPushMatrix();
+        glTranslatef(300,205,0);
+        glScalef(0.12,0.12,0);
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,x[0]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //3
+        glPushMatrix();
+        glTranslatef(325,205,0);
+        glScalef(0.1,0.1,0);
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,three[0]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //WORLD 1-1
+        glPushMatrix();
+        glTranslatef(255,250,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(world);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,world[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //MARIO
+        glPushMatrix();
+        glTranslatef(150,380,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(mario);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,mario[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //WORLD
+        glPushMatrix();
+        glTranslatef(325,380,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<5;i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,world[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //TIME
+        glPushMatrix();
+        glTranslatef(420,380,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(times);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,times[i]);
+
+        glPopMatrix();
+        glColor3f(1,1,1);   //000000
+        glPushMatrix();
+        glTranslatef(150,360,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(six0);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,six0[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //x00
+        glPushMatrix();
+        glTranslatef(264,360,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(x0);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,x0[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //1-1
+        glPushMatrix();
+        glTranslatef(339,360,0);
+        glScalef(0.12,0.12,0);
+        for(i=6;i<strlen(world);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,world[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //Coin
+        glPushMatrix();
+        glTranslatef(253,358,0);
+        glScalef(0.013,0.016,0);
+        drawCoin();
+        glPopMatrix();
+
+
         glFlush();
 }
 
@@ -1455,59 +1562,59 @@ void title()
 void scene1()
 {
         GLint i,j;
-        
+
         glClearColor(0.329411,0.54505,1,1); //Blue sky
         glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
         glLoadIdentity();
         gluOrtho2D(0,600,0,400); //The Scale for the Window
-        
-        
-        
+
+
+
         glPushMatrix();//Left cloud
         glTranslatef(125,250,0);
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
+
         glPushMatrix();//Center cloud
         glTranslatef(350,300,0);
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
+
         //Three Clouds
         draw3Cloud();
-        
-        
-        
+
+
+
         //Green Mountain
         glPushMatrix();
         glTranslatef(264,40,0);
         glScalef(.35,.35,0);
         drawMountain();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(-125,40,0);
         glScalef(.8,.7,0);
         drawMountain();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Bush
         glPushMatrix();
         glTranslatef(-340,-224,0);
         draw3Bush();
-        
+
         glTranslatef(791,250,0);
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Bricks
         glPushMatrix();
         glTranslatef(352,120,0);
@@ -1517,75 +1624,75 @@ void scene1()
                 glScalef(.3,.3,0);
                 drawBrick();
                 glPopMatrix();
-                
+
                 glTranslatef(45,0,0);
         }
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         glPushMatrix();    //Goomba
         glTranslatef(goombaX, 42, 0);   //Initial x value=415;
         glScalef(0.035, 0.035, 0);
         drawGoomba();
         glPopMatrix();
-        
-        
-        
+
+
+
         glPushMatrix();    //Mushroom
         glTranslatef(mushX, mushY, mushZ);      //Initial Postion (374,142,-1)
         glScalef(0.035, 0.035, 0);
         drawMushroom();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Question Mark
         glPushMatrix();
         glTranslatef(374.5,120,0);
         glScalef(1.406,1.406,0);
         drawQuestionBrick();
-        
+
         glTranslatef(32,0,0);
         drawQuestionBrick();
-        
+
         glTranslatef(-108,0,0);
         drawQuestionBrick();
-        
+
         glTranslatef(92,68,0);
         drawQuestionBrick();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Display Mario at Start position
         glPushMatrix();
         glTranslatef(marioX,marioY,0);  //Initial is (70,40,0)
         glScalef(.055,.055,0);   //For Bigger Version use (.075,.09,0)
         drawMario();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         glPushMatrix();    //Pipe
         glTranslatef(521, 31, 0);
         glScalef(0.055, 0.07, 0);
         drawPipe();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Ground Blocks
         glPushMatrix();
-        
+
         glColor3f(0,0,0);
         glRectf(0,0,600,42);
-        
+
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
@@ -1593,7 +1700,7 @@ void scene1()
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
+
         glPushMatrix();
         for(i=0;i<50;i++)
         {
@@ -1601,9 +1708,9 @@ void scene1()
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
+
         x1=255;x2=255;x3=255;
-        
+
         glFlush();
 }
 
@@ -1612,15 +1719,15 @@ void scene1()
 
 void scene2()
 {
-        
+
         GLint i,j;
-        
+
         glClearColor(0,0,0,1); //Blue sky
         glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
         glLoadIdentity();
         gluOrtho2D(0,410,0,273); //The Scale for the Window
-        
-        
+
+
         //Left Wall
         glPushMatrix();
         brickx=0;bricky=128;brickz=136;
@@ -1631,13 +1738,13 @@ void scene2()
                 glScalef(.3,.3,0);
                 drawBrick();
                 glPopMatrix();
-                
+
                 glTranslatef(0,21,0);
         }
         glPopMatrix();
-        
-        
-        
+
+
+
         //Mid Floor Raise
         glPushMatrix();
         glTranslatef(105,41,0);
@@ -1649,15 +1756,15 @@ void scene2()
                         glScalef(.3,.3,0);
                         drawBrick();
                         glPopMatrix();
-                        
+
                         glTranslatef(21,0,0);
                 }
                 glTranslatef(-147,21,0);
         }
         glPopMatrix();
-        
-        
-        
+
+
+
         //Ceiling Bricks
         glPushMatrix();
         glTranslatef(105,252,0);
@@ -1667,14 +1774,14 @@ void scene2()
                 glScalef(.3,.3,0);
                 drawBrick();
                 glPopMatrix();
-                
+
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Ground Blocks
         glPushMatrix();
         groundx=0;groundy=128;groundz=136;
@@ -1685,7 +1792,7 @@ void scene2()
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
+
         glPushMatrix();
         for(i=0;i<50;i++)
         {
@@ -1693,10 +1800,10 @@ void scene2()
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Coins
         glPushMatrix();
         glTranslatef(108,105,0);
@@ -1708,13 +1815,13 @@ void scene2()
                         glScalef(.02,.02,0);
                         drawCoin();
                         glPopMatrix();
-                        
+
                         glTranslatef(21,0,0);
                 }
                 glTranslatef(-147,42,0);
         }
         glPopMatrix();
-        
+
         glPushMatrix();     //Top Row
         glTranslatef(129,189,0);
         for(j=0;j<5;j++)
@@ -1723,14 +1830,14 @@ void scene2()
                 glScalef(.02,.02,0);
                 drawCoin();
                 glPopMatrix();
-                
+
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Cover coins using black boxes DURING ANIMATION
         if(coinFLAG>0)
         {
@@ -1739,54 +1846,54 @@ void scene2()
                 glRectf(106,106,106+21*coinFLAG,126);
                 glPopMatrix();
         }
-        
-        
-        
-        
+
+
+
+
         //Display Mario
         glPushMatrix();
         glTranslatef(marioX,marioY,0);
         glScalef(.055,.055,0);
         drawMario();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //To simulate Mario going inside the pipe DURING ANIMATION
         glPushMatrix();
         glColor3f(0,0,0);
         glRectf(344,41,410,100);
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Pipe
         glPushMatrix();
-        
+
         glTranslatef(392, 42, 0);
         glRotatef(90,0,0,1);
         glScalef(0.04, 0.06, 0);
         drawPipe();
-        
+
         glRotatef(270,0,0,1);
         glTranslatef(-4/.04,-7/.04,0);
         glScalef(.6,20,0);
         drawPipe();
-        
+
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         x1=255;x2=255;x3=255;
         brickx=231;bricky=95;brickz=19;
         groundx=230;groundy=95;groundz=19;
-        
-        
+
+
         glFlush();
-        
+
 }
 
 
@@ -1795,27 +1902,27 @@ void scene2()
 void scene3()
 {
         GLint i,j;
-        
+
         glClearColor(0.329411,0.54505,1,1); //Blue sky
         glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
         glLoadIdentity();
         gluOrtho2D(0,600,0,400); //The Scale for the Window
-        
-        
-        
-        
+
+
+
+
         glPushMatrix();//Left cloud
         glTranslatef(31,300,0);
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
+
         //Three Clouds(Placed at Center)
         glPushMatrix();
         glTranslatef(-300,25,0);
         draw3Cloud();
         glPopMatrix();
-        
+
         glPushMatrix();//Right cloud1
         glTranslatef(400,300,0);
         glScalef(.04,.04,0);
@@ -1826,43 +1933,43 @@ void scene3()
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Bush
         glPushMatrix();
         glTranslatef(111,27,0);
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
-        
-        
+
+
+
         glPushMatrix();    //Goomba1
         glTranslatef(goomba1X, 42, 0);
         glScalef(0.035, 0.035, 0);
         drawGoomba();
         glPopMatrix();
-        
+
         glPushMatrix();
         glTranslatef(goomba2X,42,0);//Goomba2
         glScalef(0.035, 0.035, 0);
         drawGoomba();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Green Mountain
         glPushMatrix();
         glTranslatef(-60,40,0);
         glScalef(.35,.35,0);
         drawMountain();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Bricks
         glPushMatrix();
         glTranslatef(147,120,0);
@@ -1872,27 +1979,27 @@ void scene3()
                 glScalef(.3,.3,0);
                 drawBrick();
                 glPopMatrix();
-                
+
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
-        
-        
+
+
+
         //Question Mark
         glPushMatrix();//3rd brick is replaced by question mark
         glTranslatef(189,120,0);
         glScalef(1.406,1.406,0);
         drawQuestionBrick();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Steps
         glPushMatrix();
         glTranslatef(400,42,0);
         //glTranslatef(252,42,0);
-        
+
         for(i=9;i>0;i--)
         {
                 if(i==1)
@@ -1903,26 +2010,26 @@ void scene3()
                         glScalef(1.3125,1.3125,0);
                         drawStep();
                         glPopMatrix();
-                        
+
                         glTranslatef(21,0,0);   //Place each block after 21 units
                 }
                 glTranslatef(-(i-1)*21,21,0);
         }
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         //Mario is inside the Pipe initially
         glPushMatrix();
         glTranslatef(marioX,marioY,0);
         glScalef(.055,.055,0);
         drawMario();
         glPopMatrix();
-        
-        
-        
-        
+
+
+
+
         glPushMatrix();    //Pipe1
         glTranslatef(22, 31, 0);
         glScalef(0.055, 0.07, 0);
@@ -1930,15 +2037,15 @@ void scene3()
         glTranslatef(312/.055,0,0);//Pipe2
         drawPipe();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Ground Blocks
         glPushMatrix();
-        
+
         glColor3f(0,0,0);
         glRectf(0,0,600,42);
-        
+
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
@@ -1946,7 +2053,7 @@ void scene3()
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
+
         glPushMatrix();
         for(i=0;i<50;i++)
         {
@@ -1954,11 +2061,11 @@ void scene3()
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
-        
-        
+
+
+
         x1=x2=x3=255;
-        
+
         glFlush();
 }
 
@@ -1968,20 +2075,20 @@ void scene3()
 void scene4()
 {
         GLint i,j;
-        
+
         glClearColor(0.329411,0.54505,1,1); //Blue sky
         glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
         glLoadIdentity();
         gluOrtho2D(0,600,0,400); //The Scale for the Window
-        
-        
-        
+
+
+
         glPushMatrix();//Cloud above Pipe
         glTranslatef(450,150,0);
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
+
         glPushMatrix();//Right cloud1
         glTranslatef(350,300,0);
         glScalef(.04,.04,0);
@@ -1992,33 +2099,33 @@ void scene4()
         glScalef(.04,.04,0);
         drawCloud();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Green Mountain
         glPushMatrix();
         glTranslatef(80,40,0);
         glScalef(.45,.55,0);
         drawMountain();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Bush
         glPushMatrix();
         glTranslatef(350,15,0);
         glScalef(.04,.04,0);
         drawBush();
         glPopMatrix();
-        
-        
-        
+
+
+
         //Ground Blocks
         glPushMatrix();
-        
+
         glColor3f(0,0,0);
         glRectf(0,0,600,42);
-        
+
         glTranslatef(0,21,0);   //Upper layer layer blocks of the ground. Hence control elevated to 21(Y coordinate)
         for(i=0;i<50;i++)
         {
@@ -2026,7 +2133,7 @@ void scene4()
                 glTranslatef(21,0,0);   //Place each brick after 21 units
         }
         glPopMatrix();          //Pop matrix ensures Control is at the origin (0,0)
-        
+
         glPushMatrix();
         for(i=0;i<50;i++)
         {
@@ -2034,14 +2141,14 @@ void scene4()
                 glTranslatef(21,0,0);
         }
         glPopMatrix();
-        
-        
-        
+
+
+
         //Stairs
         glPushMatrix();
         glTranslatef(-148,42,0);
         //glTranslatef(252,42,0);
-        
+
         for(i=9;i>0;i--)
         {
                 if(i==1)
@@ -2052,51 +2159,51 @@ void scene4()
                         glScalef(1.3125,1.3125,0);
                         drawStep();
                         glPopMatrix();
-                        
+
                         glTranslatef(21,0,0);   //Place each block after 21 units
                 }
                 glTranslatef(-(i-1)*21,21,0);
         }
         glPopMatrix();
-        
-        
-        
+
+
+
         glPushMatrix();    //Flagpole
         glTranslatef(181, 274, 0);
         glScalef(0.059, 0.066, 0);
         drawFlagpole();
         glPopMatrix();
-        
+
         glPushMatrix();    //Flag
         glTranslatef(181, flagMove, 0);
         glScalef(0.059, 0.066, 0);
         drawFlag();
         glPopMatrix();
-        
+
         glPushMatrix(); //Base of Flagpole
         glTranslatef(209,42,0);
         glScalef(1.3125,1.3125,0);
         drawStep();
         glPopMatrix();
-        
-        
-        
+
+
+
         glPushMatrix(); //House
         glTranslatef(272,41.5,0);
         glScalef(.28,.28,0);
         drawCastle();
         glPopMatrix();
-        
-        
+
+
         //Display Mario on top of the Stairs
         glPushMatrix();
         glTranslatef(marioX,marioY,marioZ);
         glScalef(.055,.055,0);
         drawMario();
         glPopMatrix();
-        
-        
-        
+
+
+
         glPushMatrix();    //Pipe
         glTranslatef(522, 41, 0);
         glRotatef(90,0,0,1);
@@ -2107,11 +2214,118 @@ void scene4()
         glScalef(1,1.6,0);
         drawPipe();
         glPopMatrix();
-        
-        
-        
+
+
+
         x1=255;x2=255;x3=255;
-        
+
+        glFlush();
+}
+
+
+
+
+void end()
+{
+        glClearColor(0,0,0,1);
+        glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
+        glLoadIdentity();
+        gluOrtho2D(80,520,0,400); //The Scale for the Window
+
+        int i;
+        char x[]="x";
+        char four[]="4";
+        char world[]="WORLD 1-2";
+        char mario[]="MARIO";
+        char times[]="TIME";
+        char six0[]="004200";
+        char x0[]="x07";
+
+        //Display Mario
+        glPushMatrix();
+        glTranslatef(265,200,0);
+        glScalef(.05,.06,0);
+        drawMario();
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //x
+        glPushMatrix();
+        glTranslatef(300,205,0);
+        glScalef(0.12,0.12,0);
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,x[0]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //4
+        glPushMatrix();
+        glTranslatef(325,205,0);
+        glScalef(0.1,0.1,0);
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,four[0]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //WORLD 1-2
+        glPushMatrix();
+        glTranslatef(255,250,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(world);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,world[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //MARIO
+        glPushMatrix();
+        glTranslatef(150,380,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(mario);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,mario[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //WORLD
+        glPushMatrix();
+        glTranslatef(325,380,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<5;i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,world[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //TIME
+        glPushMatrix();
+        glTranslatef(420,380,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(times);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,times[i]);
+
+        glPopMatrix();
+        glColor3f(1,1,1);   //004200
+        glPushMatrix();
+        glTranslatef(150,360,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(six0);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,six0[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //x07
+        glPushMatrix();
+        glTranslatef(264,360,0);
+        glScalef(0.12,0.12,0);
+        for(i=0;i<strlen(x0);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,x0[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //1-2
+        glPushMatrix();
+        glTranslatef(339,360,0);
+        glScalef(0.12,0.12,0);
+        for(i=6;i<strlen(world);i++)
+                glutStrokeCharacter(GLUT_STROKE_ROMAN,world[i]);
+        glPopMatrix();
+
+        glColor3f(1,1,1);   //Coin
+        glPushMatrix();
+        glTranslatef(253,358,0);
+        glScalef(0.013,0.016,0);
+        drawCoin();
+        glPopMatrix();
+
+
         glFlush();
 }
 
@@ -2123,10 +2337,10 @@ void resetScene1()
         tyme=0;
         goombaX=415;
         goombaRight=1;    //goombaRight=1 indicates that he's moving in the Right direction, 0 indicates left
-        
+
         marioX=70,marioY=40;        //Starting position of Mario
         marioUp=0,marioHoriz=1;    //marioUp=0 to make Mario move horizontally
-        
+
         mushX=374,mushY=120,mushZ=0;
         mushMove=0;
         i=180;
@@ -2138,10 +2352,10 @@ void resetScene1()
 void resetScene2()
 {
         tyme=0;
-        
+
         marioX=21,marioY=274;       //Mario before free fall
         marioUp=0,marioHoriz=0;    //Mario has to move downwards
-        
+
         i=180;
         coinFLAG=0;
 }
@@ -2156,10 +2370,10 @@ void resetScene3()
         goomba2X=284;
         goomba1Right=1;    //goombaRight=1 indicates that he's moving in the Right direction, 0 indicates left
         goomba2Right=1;
-        
+
         marioX=42,marioY=42;      //Mario inside the pipe
         marioUp=1,marioHoriz=0;    //marioUp=1 to make Mario move upwards
-        
+
         i=180;
 }
 
@@ -2169,11 +2383,11 @@ void resetScene3()
 void resetScene4()
 {
         tyme=0;
-        
+
         marioX=21,marioY=209,marioZ=0;
         marioUp=1,marioHoriz=1;
         flagMove=274;
-        
+
         i=180;
 }
 
@@ -2188,43 +2402,43 @@ void myTimer4();
 
 void myTimer1(int n)
 {
-        
+
         tyme+=10;   //Count time in miliseconds
-        
+
         if(marioUp==0 && marioHoriz==1)
                 marioX+=2;      //Mario moves Horizontally
-        
+
         else if(marioUp==0 && marioHoriz==0)
         {
                 marioY-=3;      //Mario moves Vertically downwards
                 mushY+=1.07;       //Mushroom pops out of the Question mark
         }
-        
+
         else if(marioUp==1 && marioHoriz==0)
                 marioY+=2;      //Mario moves Vertically upwards
-        
+
         if(mushMove==1)
                 mushX+=1;       //Mushroom starts moving horizontally
-        
+
         if(tyme==1530)      //Jump Up to hit the question mark
         {
                 marioUp=1;
                 marioHoriz=0;
         }
-        
+
         if(tyme==1830)     //Let gravity do the job
         {
                 marioUp=0;
                 marioHoriz=0;
         }
-        
+
         if(tyme==2030)      //Continue running
         {
                 marioHoriz=1;
                 mushMove=1;     //Mushroom moves over the bricks
         }
-        
-        
+
+
         if(tyme>=2430 && tyme<=2930)      //Mario Jumps
         {
                 marioHoriz=1;   //This is done in order to not match the first 3 if conditions
@@ -2235,20 +2449,20 @@ void myTimer1(int n)
                         i=i-.01;
                 }
         }
-        
+
         if(tyme>=2930)
         {
                 mushMove=0;     //Stop moving mushroom horizontally
                 mushY-=1.01;    //Let it fall downwards
         }
-        
+
         if(tyme>=3930 && tyme<=4280)      //Mushroom is on the ground. Move it horizontally
         {
                 mushY+=1.01;   //Inorder to counter the statement 'mushY-=1.01;' . This is done because even 'if(tyme>=2930)' will be executed
                 mushMove=1;
                 marioX+=.7;     //Mario moves to center of the Pipe
         }
-        
+
         if(tyme>=4280)
         {
                 mushMove=0;     //If set to 1, it'll move to the Right, hence set it to 0
@@ -2256,22 +2470,22 @@ void myTimer1(int n)
                 mushY+=1.01;
                 marioY-=1;
         }
-        
-        
-        
+
+
+
         //Goomba Animation
         if(goombaRight==1)
                 goombaX+=1.2;     //Move towards the right
         else
                 goombaX-=1.2;     //Move towards the left
-        
-        
+
+
         if(goombaX>=500)    //When he hits the pipe, set flag to move in the Left direction
                 goombaRight=0;
-        
+
         if(goombaX<=0)      //When he hits the leftmost part of the screen, set flag to move in the Right direction
                 goombaRight=1;
-        
+
         if(tyme==6500)
         {
                 next=1;
@@ -2279,14 +2493,14 @@ void myTimer1(int n)
                 scenePointer=&scene2;
                 glutTimerFunc(10,myTimer2,0);
         }
-        
-        
-        
+
+
+
         glutPostRedisplay();
-        
+
         if(scenePointer==scene1)
                 glutTimerFunc(10,myTimer1,0);
-        
+
 }
 
 
@@ -2296,29 +2510,29 @@ void myTimer1(int n)
 
 void myTimer2()
 {
-        
+
         tyme+=10;   //Count time in miliseconds
-        
+
         if(marioUp==0 && marioHoriz==1)
                 marioX+=1;      //Mario moves Horizontally
-        
+
         else if(marioUp==0 && marioHoriz==0)
         {
                 marioY-=2;      //Mario moves Vertically downwards
         }
-        
+
         else if(marioUp==1 && marioHoriz==0)
                 marioY+=2;      //Mario moves Vertically upwards
-        
-        
-        
+
+
+
         if(tyme==1170)
         {
                 marioUp=1;      //Stop movement
                 marioHoriz=1;
         }
-        
-        
+
+
         if(tyme>=1530 && tyme<=2030)      //Mario Jumps
         {
                 if(i>150)       //Mario jumps onto the elevated floor having coins
@@ -2327,45 +2541,45 @@ void myTimer2()
                         i=i-.01;
                 }
         }
-        
+
         if(tyme==1970)      //Coin 1 disappears
         {
                 coinFLAG=1;
                 marioUp=0;      //Start moving mario horizontally
         }
-        
+
         if(tyme==2170)      //Coin 2 disappears
                 coinFLAG=2;
-        
+
         if(tyme==2370)      //Coin 3 disappears
                 coinFLAG=3;
-        
+
         if(tyme==2570)      //Coin 4 disappears
                 coinFLAG=4;
-        
+
         if(tyme==2770)      //Coin 5 disappears
                 coinFLAG=5;
-        
+
         if(tyme==2970)      //Coin 6 disappears
                 coinFLAG=6;
-        
+
         if(tyme==3170)      //Coin 7 disappears
                 coinFLAG=7;
-        
+
         if(tyme==3550)
         {
                 marioUp=1;
         }
-        
+
         if(tyme>=3550 && tyme<=3970)      //Mario falls to ground after collecting Coins
         {
                 marioX+=.75;
                 marioY-=1.5;
         }
-        
+
         if(tyme==4000)                  //Enable Horizontal movement of Mario
                 marioUp=0;
-        
+
         if(tyme==6000)
         {
                 next=2;
@@ -2373,10 +2587,10 @@ void myTimer2()
                 scenePointer=&scene3;
                 glutTimerFunc(10,myTimer3,0);
         }
-        
-        
+
+
         glutPostRedisplay();
-        
+
         if(scenePointer==scene2)
                 glutTimerFunc(10,myTimer2,0);
 }
@@ -2388,106 +2602,106 @@ void myTimer2()
 
 void myTimer3()
 {
-        
+
         tyme+=10;   //Count time in miliseconds
-        
+
         if(marioUp==0 && marioHoriz==1)
                 marioX+=1;      //Mario moves Horizontally
-        
+
         else if(marioUp==0 && marioHoriz==0)
         {
                 marioY-=2;      //Mario moves Vertically downwards
         }
-        
+
         else if(marioUp==1 && marioHoriz==0)
                 marioY+=.5;      //Mario moves Vertically upwards
-        
+
         if(tyme==860)       //Mario comes up the Pipe
                 marioHoriz=1;
-        
+
         if(tyme>=1300 && tyme<=2000)      //Mario Jumps onto the bricks
                 if(i>150)
                 {   marioX=126+84*(-cos(3.14*i));
                         marioY=89+84*(-sin(3.14*i));
                         i=i-.01;
                 }
-        
+
         if(tyme==2050)                  //Move Mario horizontally on the bricks
         {
                 marioUp=0;
                 i=180;      //Set angle value for the next jump
         }
-        
+
         if(tyme>=2300 && tyme<=2900)
                 if(i>150)       //Mario is jumping onto the 2nd Pipe
                 {   marioX=284+50*(-cos(3.14*i));
                         marioY=141+50*(-sin(3.14*i));
                         i=i-.015;
                 }
-        
+
         if(tyme==2900)            //Free fall onto the Pipe
         {
                 marioUp=0;
                 marioHoriz=0;
                 i=180;                  //Set angle value for the next jump
         }
-        
+
         if(tyme==3180)             //Move towards the right
                 marioHoriz=1;
-        
+
         if(tyme==3480)              //Stop
                 marioUp=1;
-        
+
         if(tyme>=3700 && tyme<=4400)
                 if(i>179.44)       //Mario jumps onto the Stairs
                 {   marioX=441+63*(-cos(3.14*i));
                         marioY=89+63*(-sin(3.14*i));
                         i=i-.01;
                 }
-        
+
         if(tyme==4450)
                 i=180;
-        
+
         if(tyme>=4500 && tyme<=5200)
                 if(i>179.52)       //Mario jumps onto the Top Step
                 {   marioX=533+63*(-cos(3.14*i));
                         marioY=147+63*(-sin(3.14*i));
                         i=i-.01;
                 }
-        
+
         if(tyme==5250)
                 marioUp=0;          //Mario moves horizontally
-        
+
         if(tyme==5470)
                 marioUp=1;          //Stop Mario movement
-        
-        
-        
-        
+
+
+
+
         //Goomba Animation
         if(goomba1Right==1)  //Goomba1
                 goomba1X+=.7;     //Move towards the right
         else
                 goomba1X-=.7;     //Move towards the left
-        
+
         if(goomba2Right==1)  //Goomba2
                 goomba2X+=.7;     //Move towards the right
         else
                 goomba2X-=.7;     //Move towards the left
-        
-        
+
+
         if(goomba1X>=315)    //When he hits the pipe, set flag to move in the Left direction
                 goomba1Right=0;
-        
+
         if(goomba1X<=73)      //When he hits the leftmost part of the screen, set flag to move in the Right direction
                 goomba1Right=1;
-        
+
         if(goomba2X>=316)    //When he hits the pipe, set flag to move in the Left direction
                 goomba2Right=0;
-        
+
         if(goomba2X<=73)      //When he hits the leftmost part of the screen, set flag to move in the Right direction
                 goomba2Right=1;
-        
+
         if(tyme==6000)
         {
                 next=3;
@@ -2495,13 +2709,13 @@ void myTimer3()
                 scenePointer=&scene4;
                 glutTimerFunc(10,myTimer4,0);
         }
-        
-        
+
+
         glutPostRedisplay();
-        
+
         if(scenePointer==scene3)
                 glutTimerFunc(10,myTimer3,0);
-        
+
 }
 
 
@@ -2509,87 +2723,91 @@ void myTimer3()
 
 void myTimer4()
 {
-        
+
         tyme+=10;   //Count time in miliseconds
-        
+
         if(marioUp==0 && marioHoriz==1)
                 marioX+=1;      //Mario moves Horizontally
-        
+
         else if(marioUp==0 && marioHoriz==0)
         {
                 marioY-=1.5;      //Mario moves Vertically downwards
         }
-        
+
         else if(marioUp==1 && marioHoriz==0)
                 marioY+=.5;      //Mario moves Vertically upwards
-        
+
         if(tyme>=500 && tyme<=1270)      //Mario Jumps onto the Flag
                 if(i>150)
                 {   marioX=115+94*(-cos(3.14*i));
                         marioY=209+94*(-sin(3.14*i));
                         i=i-.01;
                 }
-        
+
         if(tyme>=1400 && tyme<=2500)    //Mario and Flag slide downwards
         {
                 marioHoriz=0;
                 marioUp=0;
                 flagMove-=1.5;
-                
+
         }
-        
+
         if(tyme==2500)          //Stop sliding
         {
                 marioHoriz=1;
                 marioUp=1;
         }
-        
+
         if(tyme==3000)          //Mario moves rightwards
         {
                 marioUp=0;
         }
-        
+
         if(tyme==3300)          //Falls onto the ground
         {
                 marioHoriz=0;
         }
-        
+
         if(tyme==3590)          //Pause
         {
                 marioY--;           //Alignment with the Ground
                 marioHoriz=1;
                 marioUp=1;
         }
-        
+
         if(tyme==3700)          //Go towards the Castle
                 marioUp=0;
-        
+
         if(tyme==4560)          //Go inside the Castle
         {
                 marioUp=1;
                 marioZ=3;
         }
-        
+
         if(tyme==8000)          //Walk towards the Pipe
         {
                 marioZ=0;
                 marioUp=0;
         }
-        
+
         if(tyme==9500)         //Enter the Pipe
         {
                 marioHoriz=1;
                 marioUp=1;
         }
-        
-        
-        
-        
+
+        if(tyme==10000)
+        {
+                next=4;
+                scenePointer=&end;
+        }
+
+
         glutPostRedisplay();
-        
+
         if(scenePointer==scene4)
                 glutTimerFunc(10,myTimer4,0);
-        
+
 }
 
 
@@ -2605,45 +2823,51 @@ void myKey(unsigned char c, int x, int y)
                 exit(0);
         else
                 return;         //Don't proceed
-        
-        
-        if(next==-1)
+
+
+        if(next==-2)
                 scenePointer = &title; //Set Display Function as Scene1
-        
+
+        if(next==-1)
+                scenePointer = &start; //Set Display Function as Scene1
+
         if(next==0)
         {
                 scenePointer = &scene1; //Set Display Function as Scene1
                 resetScene1();          //Load Parameters in their initial state for this scene
                 glutTimerFunc(10,myTimer1,0);   //Start Animation
         }
-        
+
         if(next==1)
         {
                 scenePointer = &scene2; //Set Display Function as Scene2
                 resetScene2();
                 glutTimerFunc(10,myTimer2,0);
         }
-        
+
         if(next==2)
         {
                 scenePointer = &scene3; //Set Display Function as Scene3
                 resetScene3();
                 glutTimerFunc(10,myTimer3,0);
         }
-        
+
         if(next==3)
         {
                 scenePointer = &scene4; //Set Display Function as Scene3
                 resetScene4();
                 glutTimerFunc(10,myTimer4,0);
         }
-        
-        if(next<-1)
-                next=-1;
-        
-        if(next>3)
-                next=3;
-        
+
+        if(next==4)
+                scenePointer = &end;
+
+        if(next<-2)
+                next=-2;
+
+        if(next>4)
+                next=4;
+
         glutPostRedisplay();
 }
 
@@ -2652,9 +2876,9 @@ void myKey(unsigned char c, int x, int y)
 
 void currentDisplay()
 {
-        
+
         (*scenePointer)();              //Pointer function that points to one of the 4 Scenes
-        
+
 }
 
 
@@ -2667,16 +2891,16 @@ int main(int argc,char **argv)
         glutInitWindowSize(750,500);
         glutInitWindowPosition(0,0);
         glutCreateWindow("Mario v1.1");
-        
+
         scenePointer=&title;       //scenePointer should initially point to the first scene in order to display it
-        
+
         glutDisplayFunc(currentDisplay);
-        
+
         //        glutTimerFunc(3000,myTimer1,0);
         //        glutTimerFunc(500,myTimer2,0);
         //        glutTimerFunc(500,myTimer3,0);
         //        glutTimerFunc(500,myTimer4,0);
-        
+
         glutKeyboardFunc(myKey);
         glutMainLoop();             //mainloop handles all the glut events(functions with the prefix "glut"). Display function is only called once, not iteratively.
         return 0;
