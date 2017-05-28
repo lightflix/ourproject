@@ -9,22 +9,22 @@
 
 
 /*WINDOWS HEADERS*/
-#include<stdio.h>
-#include<GL/gl.h>
-#include<GL/glut.h>
-#include<windows.h>
-#include<math.h>
-#include<time.h>
+//#include<stdio.h>
+//#include<GL/gl.h>
+//#include<GL/glut.h>
+//#include<windows.h>
+//#include<math.h>
+//#include<time.h>
 
 /*MAC HEADERS*/
-//#include<OpenGL/gl.h>
-//#include<OpenGL/glu.h>
-//#include<OpenGL/glext.h>
-//#include<GLUT/glut.h>
-//#include<stdio.h>
-//#include<math.h>
-//#include<stdlib.h>
-//#include<time.h>
+#include<OpenGL/gl.h>
+#include<OpenGL/glu.h>
+#include<OpenGL/glext.h>
+#include<GLUT/glut.h>
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<time.h>
 
 
 double tyme=0;
@@ -1332,8 +1332,8 @@ void title()
         {
                 do
                 {
-                        r2=rand()%255;
-                }while(r2<202);
+                        r2=rand()%240;
+                }while(r2<195);
                 glColor3ub(mix,mix,r2);
                 glRectf(-40,-20+chg,200,chg*chg);
                 chg=chg*1.0177;
@@ -1452,7 +1452,7 @@ void title()
 
 
 
-void start()
+void drawStart()
 {
         glClearColor(0,0,0,1);
         glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
@@ -2225,7 +2225,7 @@ void scene4()
 
 
 
-void end()
+void drawEnd()
 {
         glClearColor(0,0,0,1);
         glClear(GL_COLOR_BUFFER_BIT); //clear the color buffer
@@ -2799,7 +2799,7 @@ void myTimer4()
         if(tyme==10000)
         {
                 next=4;
-                scenePointer=&end;
+                scenePointer=&drawEnd;
         }
 
 
@@ -2829,7 +2829,7 @@ void myKey(unsigned char c, int x, int y)
                 scenePointer = &title; //Set Display Function as Scene1
 
         if(next==-1)
-                scenePointer = &start; //Set Display Function as Scene1
+                scenePointer = &drawStart; //Set Display Function as Scene1
 
         if(next==0)
         {
@@ -2860,7 +2860,7 @@ void myKey(unsigned char c, int x, int y)
         }
 
         if(next==4)
-                scenePointer = &end;
+                scenePointer = &drawEnd;
 
         if(next<-2)
                 next=-2;
