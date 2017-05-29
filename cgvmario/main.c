@@ -2890,7 +2890,7 @@ int main(int argc,char **argv)
         //glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA | GLUT_DEPTH);
         glutInitWindowSize(750,500);
         glutInitWindowPosition(0,0);
-        glutCreateWindow("Mario v1.1");
+        glutCreateWindow("SUPER MARIO BROS. (Gameplay)");
 
         scenePointer=&title;       //scenePointer should initially point to the first scene in order to display it
 
